@@ -1,0 +1,24 @@
+14:06:06 **** Build of configuration Nios II for project nios_software ****
+make all 
+Info: Building ../nios_software_bsp/
+C:/intelFPGA/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../nios_software_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../nios_software_bsp//HAL/inc -I../nios_software_bsp/ -I../nios_software_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c:12:55: error: 'IIC_DATA_BIT_BASE' undeclared here (not in a function)
+ volatile alt_u32* i2cDataBit_ptr = (volatile alt_u32*)IIC_DATA_BIT_BASE;
+                                                       ^
+main.c:13:56: error: 'IIC_CLOCK_BIT_BASE' undeclared here (not in a function)
+ volatile alt_u32* i2cClockBit_ptr = (volatile alt_u32*)IIC_CLOCK_BIT_BASE;
+                                                        ^
+main.c:17:36: error: 'PIO_1_BASE' undeclared here (not in a function)
+ alt_u32 *ledsBasePtr = (alt_u32 *) PIO_1_BASE;
+                                    ^
+main.c: In function 'main':
+main.c:41:17: warning: variable 'final_result' set but not used [-Wunused-but-set-variable]
+   volatile bool final_result;
+                 ^
+make: *** [obj/default/main.o] Error 1
+
+14:06:07 Build Finished (took 1s.421ms)
+

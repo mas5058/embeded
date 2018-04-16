@@ -1,0 +1,13 @@
+!SESSION 2018-04-11 15:54:07.646 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-04-11 15:56:40.176
+!MESSAGE Indexed 'nios_software_bsp' (80 sources, 124 headers) in 1.70 sec: 3,202 declarations; 5,902 references; 88 unresolved inclusions; 6 syntax errors; 170 unresolved names (1.83%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-04-11 15:56:41.441
+!MESSAGE Indexed 'nios_software' (0 sources, 0 headers) in 0.00 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)

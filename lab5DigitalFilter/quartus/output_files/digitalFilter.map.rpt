@@ -1,0 +1,335 @@
+Analysis & Synthesis report for digitalFilter
+Mon Apr 16 14:25:03 2018
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++-----------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Mon Apr 16 14:25:03 2018               ;
+; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
+; Revision Name               ; digitalFilter                                   ;
+; Top-level Entity Name       ; lab4                                            ;
+; Family                      ; Cyclone V                                       ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
+; Total registers             ; N/A until Partition Merge                       ;
+; Total pins                  ; N/A until Partition Merge                       ;
+; Total virtual pins          ; N/A until Partition Merge                       ;
+; Total block memory bits     ; N/A until Partition Merge                       ;
+; Total PLLs                  ; N/A until Partition Merge                       ;
+; Total DLLs                  ; N/A until Partition Merge                       ;
++-----------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; lab4               ; digitalFilter      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+    Info: Processing started: Mon Apr 16 14:24:52 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digitalFilter -c digitalFilter
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file nios_system/synthesis/nios_system.vhd
+    Info (12022): Found design unit 1: nios_system-rtl File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system.vhd Line: 29
+    Info (12023): Found entity 1: nios_system File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file nios_system/synthesis/nios_system_rst_controller.vhd
+    Info (12022): Found design unit 1: nios_system_rst_controller-rtl File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system_rst_controller.vhd Line: 75
+    Info (12023): Found entity 1: nios_system_rst_controller File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system_rst_controller.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file nios_system/synthesis/nios_system_rst_controller_001.vhd
+    Info (12022): Found design unit 1: nios_system_rst_controller_001-rtl File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system_rst_controller_001.vhd Line: 75
+    Info (12023): Found entity 1: nios_system_rst_controller_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/nios_system_rst_controller_001.vhd Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_irq_mapper.sv
+    Info (12023): Found entity 1: nios_system_irq_mapper File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0.v
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_avalon_st_adapter File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_mux_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_mux File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_demux_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_demux File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_mux_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux_001.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_mux File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_demux_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_demux File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_003_default_decode File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_003 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_002_default_decode File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_002 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_001_default_decode File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_001 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_default_decode File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_to_external_bus_bridge_0.v
+    Info (12023): Found entity 1: nios_system_to_external_bus_bridge_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_to_external_bus_bridge_0.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_sysid_qsys_0.v
+    Info (12023): Found entity 1: nios_system_sysid_qsys_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_sysid_qsys_0.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_pio_0.v
+    Info (12023): Found entity 1: nios_system_pio_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_pio_0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_onchip_memory2_0.v
+    Info (12023): Found entity 1: nios_system_onchip_memory2_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_onchip_memory2_0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0.v Line: 9
+Info (12021): Found 21 design units, including 21 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0_cpu_register_bank_a_module File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 21
+    Info (12023): Found entity 2: nios_system_nios2_gen2_0_cpu_register_bank_b_module File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 87
+    Info (12023): Found entity 3: nios_system_nios2_gen2_0_cpu_nios2_oci_debug File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 153
+    Info (12023): Found entity 4: nios_system_nios2_gen2_0_cpu_nios2_oci_break File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 295
+    Info (12023): Found entity 5: nios_system_nios2_gen2_0_cpu_nios2_oci_xbrk File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 588
+    Info (12023): Found entity 6: nios_system_nios2_gen2_0_cpu_nios2_oci_dbrk File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 795
+    Info (12023): Found entity 7: nios_system_nios2_gen2_0_cpu_nios2_oci_itrace File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 982
+    Info (12023): Found entity 8: nios_system_nios2_gen2_0_cpu_nios2_oci_td_mode File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1115
+    Info (12023): Found entity 9: nios_system_nios2_gen2_0_cpu_nios2_oci_dtrace File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1183
+    Info (12023): Found entity 10: nios_system_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1265
+    Info (12023): Found entity 11: nios_system_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1337
+    Info (12023): Found entity 12: nios_system_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1380
+    Info (12023): Found entity 13: nios_system_nios2_gen2_0_cpu_nios2_oci_fifo File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1427
+    Info (12023): Found entity 14: nios_system_nios2_gen2_0_cpu_nios2_oci_pib File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1913
+    Info (12023): Found entity 15: nios_system_nios2_gen2_0_cpu_nios2_oci_im File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 1936
+    Info (12023): Found entity 16: nios_system_nios2_gen2_0_cpu_nios2_performance_monitors File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2006
+    Info (12023): Found entity 17: nios_system_nios2_gen2_0_cpu_nios2_avalon_reg File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2023
+    Info (12023): Found entity 18: nios_system_nios2_gen2_0_cpu_ociram_sp_ram_module File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2116
+    Info (12023): Found entity 19: nios_system_nios2_gen2_0_cpu_nios2_ocimem File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2181
+    Info (12023): Found entity 20: nios_system_nios2_gen2_0_cpu_nios2_oci File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2362
+    Info (12023): Found entity 21: nios_system_nios2_gen2_0_cpu File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu.v Line: 2834
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_sysclk.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0_cpu_debug_slave_sysclk File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_tck.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0_cpu_debug_slave_tck File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_wrapper.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0_cpu_debug_slave_wrapper File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_test_bench.v
+    Info (12023): Found entity 1: nios_system_nios2_gen2_0_cpu_test_bench File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_nios2_gen2_0_cpu_test_bench.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_leds.v
+    Info (12023): Found entity 1: nios_system_leds File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_leds.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_key1.v
+    Info (12023): Found entity 1: nios_system_key1 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_key1.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file nios_system/synthesis/submodules/nios_system_jtag_uart_0.v
+    Info (12023): Found entity 1: nios_system_jtag_uart_0_sim_scfifo_w File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 21
+    Info (12023): Found entity 2: nios_system_jtag_uart_0_scfifo_w File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 78
+    Info (12023): Found entity 3: nios_system_jtag_uart_0_sim_scfifo_r File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 164
+    Info (12023): Found entity 4: nios_system_jtag_uart_0_scfifo_r File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 243
+    Info (12023): Found entity 5: nios_system_jtag_uart_0 File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 331
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_iic_data_bit.v
+    Info (12023): Found entity 1: nios_system_iic_data_bit File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_iic_data_bit.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_iic_clock_bit.v
+    Info (12023): Found entity 1: nios_system_iic_clock_bit File: S:/Embedded/lab5DigitalFilter/quartus/nios_system/synthesis/submodules/nios_system_iic_clock_bit.v Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file dualportram.vhd
+    Info (12022): Found design unit 1: dualportram-SYN File: S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd Line: 59
+    Info (12023): Found entity 1: dualPortRAM File: S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/synchronizer1.vhd
+    Info (12022): Found design unit 1: synchronizer-synchronizer_arch File: S:/Embedded/lab5DigitalFilter/src/synchronizer1.vhd Line: 14
+    Info (12023): Found entity 1: synchronizer File: S:/Embedded/lab5DigitalFilter/src/synchronizer1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/raminfr.vhd
+    Info (12022): Found design unit 1: raminfr_be-rtl File: S:/Embedded/lab5DigitalFilter/src/raminfr.vhd Line: 19
+    Info (12023): Found entity 1: raminfr_be File: S:/Embedded/lab5DigitalFilter/src/raminfr.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/peripheral_on_external_bus.vhd
+    Info (12022): Found design unit 1: peripheral_on_external_bus-peripheral_on_external_bus_arch File: S:/Embedded/lab5DigitalFilter/src/peripheral_on_external_bus.vhd Line: 23
+    Info (12023): Found entity 1: peripheral_on_external_bus File: S:/Embedded/lab5DigitalFilter/src/peripheral_on_external_bus.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/lab4.vhd
+    Info (12022): Found design unit 1: lab4-lab4_arch File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 69
+    Info (12023): Found entity 1: lab4 File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/hexdisplaydriver.vhd
+    Info (12022): Found design unit 1: hexDisplayDriver-hexDisplayDriver_arch File: S:/Embedded/lab5DigitalFilter/src/hexDisplayDriver.vhd Line: 11
+    Info (12023): Found entity 1: hexDisplayDriver File: S:/Embedded/lab5DigitalFilter/src/hexDisplayDriver.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/debounce1.vhd
+    Info (12022): Found design unit 1: debounce-debounce_arch File: S:/Embedded/lab5DigitalFilter/src/debounce1.vhd Line: 20
+    Info (12023): Found entity 1: debounce File: S:/Embedded/lab5DigitalFilter/src/debounce1.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /embedded/lab5digitalfilter/src/codec_dac_interface.vhd
+    Info (12022): Found design unit 1: codec_dac_interface-codec_dac_interface_arch File: S:/Embedded/lab5DigitalFilter/src/codec_dac_interface.vhd Line: 25
+    Info (12023): Found entity 1: codec_dac_interface File: S:/Embedded/lab5DigitalFilter/src/codec_dac_interface.vhd Line: 13
+Error (10500): VHDL syntax error at audiofilter.vhd(9) near text "signal";  expecting "entity", or "architecture", or "use", or "library", or "package", or "configuration" File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 9
+Error (10523): Ignored construct audiofilter at audiofilter.vhd(32) due to previous errors File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 32
+Error (10500): VHDL syntax error at audiofilter.vhd(45) near text "if";  expecting "begin", or a declaration statement File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 45
+Error (10500): VHDL syntax error at audiofilter.vhd(45) near text { File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 45
+Error (10500): VHDL syntax error at audiofilter.vhd(47) near text } File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 47
+Error (10500): VHDL syntax error at audiofilter.vhd(48) near text { File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 48
+Error (10500): VHDL syntax error at audiofilter.vhd(50) near text } File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 50
+Info (12021): Found 0 design units, including 0 entities, in source file audiofilter.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file multi.vhd
+    Info (12022): Found design unit 1: multi-SYN File: S:/Embedded/lab5DigitalFilter/quartus/multi.vhd Line: 53
+    Info (12023): Found entity 1: multi File: S:/Embedded/lab5DigitalFilter/quartus/multi.vhd Line: 43
+Info (144001): Generated suppressed messages file S:/Embedded/lab5DigitalFilter/quartus/output_files/digitalFilter.map.smsg
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 7 errors, 1 warning
+    Error: Peak virtual memory: 753 megabytes
+    Error: Processing ended: Mon Apr 16 14:25:05 2018
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in S:/Embedded/lab5DigitalFilter/quartus/output_files/digitalFilter.map.smsg.
+
+

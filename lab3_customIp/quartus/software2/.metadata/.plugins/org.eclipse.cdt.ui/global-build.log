@@ -1,0 +1,49 @@
+16:33:24 **** Incremental Build of configuration Nios II for project niosSoftware ****
+make all 
+Info: Building ../niosSoftware_bsp/
+C:/intelFPGA/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../niosSoftware_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../niosSoftware_bsp//HAL/inc -I../niosSoftware_bsp/ -I../niosSoftware_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c:7:24: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  unsigned char *addr = (unsigned long *) 0;
+                        ^
+main.c:15:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^
+main.c: In function 'main':
+main.c:17:2: warning: implicit declaration of function 'writeData' [-Wimplicit-function-declaration]
+  writeData(4);
+  ^
+main.c:31:9: warning: implicit declaration of function 'ramTestByte' [-Wimplicit-function-declaration]
+     if (ramTestByte(addr, 4) == 1){
+         ^
+main.c: At top level:
+main.c:68:6: warning: conflicting types for 'writeData'
+ void writeData(int times){
+      ^
+main.c:17:2: note: previous implicit declaration of 'writeData' was here
+  writeData(4);
+  ^
+main.c: In function 'ramTestByte':
+main.c:93:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.c: In function 'ramTestHalfwork':
+main.c:110:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Linking niosSoftware.elf
+nios2-elf-g++  -T'../niosSoftware_bsp//linker.x' -msys-crt0='../niosSoftware_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../niosSoftware_bsp/   -Wl,-Map=niosSoftware.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o niosSoftware.elf obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert niosSoftware.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 3 --sidp 0x19020 --timestamp 1520284064 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "S:/Embedded/lab3_customIp/quartus/software2" --jdi ../..//output_files/customIp.jdi --sopcinfo S:/Embedded/lab3_customIp/quartus/software2/software/niosSoftware_bsp/../../nios_system.sopcinfo
+Info: (niosSoftware.elf) 15 KBytes program size (code + initialized data).
+Info:                    10 KBytes free for stack + heap.
+Info: Creating niosSoftware.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source niosSoftware.elf >niosSoftware.objdump
+[niosSoftware build complete]
+16:34:35 **** Incremental Build of configuration Nios II for project niosSoftware ****
+make all 
+Info: Building ../niosSoftware_bsp/
+C:/intelFPGA/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../niosSoftware_bsp/
+[BSP build complete]
+[niosSoftware build complete]

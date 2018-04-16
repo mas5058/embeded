@@ -1,0 +1,29 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst demo.nios2_gen2_0.cpu -pg 1
+preplace inst demo.nios2_gen2_0 -pg 1 -lvl 2 -y 420
+preplace inst demo.sys_sdram_pll_0 -pg 1 -lvl 3 -y 50
+preplace inst demo.jtag_uart_0 -pg 1 -lvl 3 -y 430
+preplace inst demo.ledr -pg 1 -lvl 3 -y 330
+preplace inst demo.switches -pg 1 -lvl 3 -y 530
+preplace inst demo.nios2_gen2_0.clock_bridge -pg 1
+preplace inst demo.new_sdram_controller_0 -pg 1 -lvl 3 -y 630
+preplace inst demo -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst demo.sys_sdram_pll_0.reset_from_locked -pg 1
+preplace inst demo.sysid_qsys_0 -pg 1 -lvl 3 -y 150
+preplace inst demo.sys_sdram_pll_0.sys_pll -pg 1
+preplace inst demo.clk_0 -pg 1 -lvl 1 -y 430
+preplace inst demo.timer_0 -pg 1 -lvl 3 -y 230
+preplace inst demo.nios2_gen2_0.reset_bridge -pg 1
+preplace netloc FAN_OUT<net_container>demo</net_container>(SLAVE)ledr.clk,(SLAVE)new_sdram_controller_0.clk,(SLAVE)sys_sdram_pll_0.ref_clk,(SLAVE)switches.clk,(MASTER)clk_0.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)timer_0.clk) 1 1 2 290 340 730
+preplace netloc EXPORT<net_container>demo</net_container>(SLAVE)ledr.external_connection,(SLAVE)demo.ledr) 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc EXPORT<net_container>demo</net_container>(SLAVE)demo.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>demo</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 750
+preplace netloc INTERCONNECT<net_container>demo</net_container>(MASTER)nios2_gen2_0.instruction_master,(SLAVE)switches.s1,(MASTER)nios2_gen2_0.data_master,(SLAVE)timer_0.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)new_sdram_controller_0.s1,(SLAVE)ledr.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)sysid_qsys_0.control_slave) 1 1 2 310 380 670
+preplace netloc EXPORT<net_container>demo</net_container>(SLAVE)new_sdram_controller_0.wire,(SLAVE)demo.sdram) 1 0 3 NJ 700 NJ 700 NJ
+preplace netloc EXPORT<net_container>demo</net_container>(MASTER)demo.clock_buffer_sdram,(MASTER)sys_sdram_pll_0.sdram_clk) 1 3 1 N
+preplace netloc EXPORT<net_container>demo</net_container>(SLAVE)switches.external_connection,(SLAVE)demo.switches) 1 0 3 NJ 560 NJ 560 NJ
+preplace netloc EXPORT<net_container>demo</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)demo.reset) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>demo</net_container>(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)timer_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)sys_sdram_pll_0.ref_reset,(SLAVE)switches.reset,(SLAVE)ledr.reset,(SLAVE)sysid_qsys_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)new_sdram_controller_0.reset) 1 1 2 270 360 690
+levelinfo -pg 1 0 60 1130
+levelinfo -hier demo 70 100 430 830 990

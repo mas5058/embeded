@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Mon Apr 16 13:42:37 2018
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+Revision Name : audioCodec
+Top-level Entity Name : lab4
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 2294
+Total pins : 189
+Total virtual pins : 0
+Total block memory bits : 314,624
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
