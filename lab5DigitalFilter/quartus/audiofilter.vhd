@@ -21,9 +21,16 @@ signal sec1 : signed(35 downto 0);
 signal sec2 : signed(35 downto 0);
 
 --constant declarations
-constant B(1)(1) : std_logic_signed := x"E45"
+constant B(1)(1) : std_logic_signed := x"E45";
 constant B(3)(1) : std_logic_signed := (others => '0');
-constant a(2)(1) : std_logic_signed := -- - 91
+constant B(1)(2) : std_logic_signed := x"15B"; --.0026446 to 347
+constant B(2)(2) : std_logic_signed := x"2B7"; -- .00529893 to 695
+constant B(3)(2) : std_logic_signed := x"15B"; --.0026446
+constant a(2)(1) : std_logic_signed := x"1D1EC";-- - 91
+constant a(3)(1) : std_logic_signed := (others => '0');
+constant a(2)(2) : std_logic_signed := x"1D1EC"-- -1.9349
+constant a(3)(2) : std_logic_signed := x"1E317"-- .94353 to 123671
+
 -- Grab just one channel from input
 filterInOneChannel <= i_audioSample(35 downto 0);
 
@@ -114,6 +121,11 @@ architecture arch of audiofilter is
 		dataa => ab2Output,
 		datab => b2Output,
 		result => b2Output
+	)
+	a(2)(1)multi: multi_inst port map(
+		dataa => ab2Output,
+		datab => b2Output,
+		result => a2Output
 	)
 	
 	
