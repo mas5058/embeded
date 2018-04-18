@@ -8,18 +8,22 @@ use ieee.std_logic_textio.all;
 use std.textio.all;
 
 entity flipflop is
-port ( d, clk, en : in std_logic;
-	   q 		  : out std_logic
+port ( d      			: in signed;
+		 clk,en, reset : in std_logic;
+	    q 	  			: out signed
 );
 end flipflop;
 
 architecture arch of flipflop is
 begin
-process(clk,en)
-begin
-if(rising_edge(clk) and clk = '1' and en = '1') then
-	q <= d;
-	
-end if;
-end process;
+	process(clk,en,reset)
+	begin
+		if(rising_edge(clk)) then
+			if(reset = '1') then
+				q <= (others => '0');
+			elsif (en = '1') then
+				q <= d;
+			end if;
+		end if;
+	end process;
 end arch;

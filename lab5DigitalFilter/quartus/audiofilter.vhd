@@ -2,28 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_signed.all;
+use ieee.std_logic_unsigned.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
-
-
--- Grab just one channel from input
-filterInOneChannel <= i_audioSample(35 downto 0);
-
--- Simply resize the 16 bit input to 36 bits. There is an implied
--- divide by 4 involved in this, since we are going from 15 bits to
--- 17 bits after the implied decimal point. This will be canceled by
--- the multiply by 4 on the output.
-filterInResized <= resize(filterInOneChannel, filterInResized'length);
-
--- Implement the divide by 16 which is multiplier s(1)
-filterSection_1in <= shift_right(filterInResized, 4);
-
--- Grab the lowest 16 bits of your filter output and place them
--- into the output port. There is an implied multiply by 4 here
--- due to going from 15 bits to 17 bits after the decimal. This cancels
--- the previous divide by 4.
-o_audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
 
 entity audiofilter is
 	port (
@@ -36,21 +18,7 @@ entity audiofilter is
 end entity;
 
 architecture arch of audiofilter is
-	--constant declarations
-	constant B(1)(1) : std_logic_signed(35 downto 0) := x"E45";
-	constant B(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
-	constant B(1)(2) : std_logic_signed(35 downto 0) := x"15B"; --.0026446 to 347
-	constant B(2)(2) : std_logic_signed(35 downto 0) := x"2B7"; -- .00529893 to 695
-	constant B(3)(2) : std_logic_signed(35 downto 0) := x"800B"; --.0026446
-	constant B(3)(3) : std_logic_signed(35 downto 0) := x"15B"; --.25008 to 327793
-
-	constant a(2)(1) : std_logic_signed(35 downto 0) := x"1D1EC";-- - 91
-	constant a(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
-	constant a(2)(2) : std_logic_signed(35 downto 0) := x"1D1EC"-- -1.9349
-	constant a(3)(2) : std_logic_signed(35 downto 0) := x"1E317"-- .94353 to 123671
-	constant a(3)(3) : std_logic_signed(35 downto 0) := x"1B79C"-- .85861 TO 1122540
-
-	-- Signal declarations
+-- Signal declarations
 	signal filterInOneChannel : signed(15 downto 0);
 	signal filterInResized : signed(35 downto 0);
 	signal filterSection_1in : signed(35 downto 0);
@@ -91,28 +59,49 @@ architecture arch of audiofilter is
 	signal sec1       : signed(35 downto 0);
 	signal sec2       : signed(35 downto 0);
 
+
+	--constant declarations
+	constant B11 : signed(35 downto 0) := x"E45";
+	constant B12 : signed(35 downto 0) := x"15B"; --.0026446 to 347
+	constant B13 : signed(35 downto 0) := x"15B"; --.25008
+	constant B21 : signed(35 downto 0) := x"E45"; -- .00529893 to 695
+	constant B22 : signed(35 downto 0) := x"2B7"; -- .00529893 to 695
+	constant B23 : signed(35 downto 0) := x"10014"; -- .50015 to 695
+	constant B31 : signed(35 downto 0) := (others => '0');
+	constant B32 : signed(35 downto 0) := x"800B"; --.0026446
+	constant B33 : signed(35 downto 0) := x"15B"; --.25008 to 327793
+                   
+	constant A21 : signed(35 downto 0) := x"E2E14";-- - 91
+	constant A22 : signed(35 downto 0) := x"C2155";-- -1.9349
+	constant A23 : signed(35 downto 0) := x"C4C98";-- -1.8504 to 242536
+	constant A31 : signed(35 downto 0) := (others => '0');
+	constant A32 : signed(35 downto 0) := x"1E317";-- .94353 to 123671
+	constant A33 : signed(35 downto 0) := x"1B79C";-- .85861 TO 1122540
+
+	
 	--circles are adders, triangles are multipliers
 
 	component multi_inst is
 	port (
-			dataa	 : in std_logic_vector (35 downto 0);
-			datab	 : in std_logic_vector (35 downto 0);
-			result : out std_logic_vector  (71 downto 0)	 
+			dataa	 : in signed (35 downto 0);
+			datab	 : in signed (35 downto 0);
+			result : out signed  (71 downto 0)	 
 		);
 	end component;
 
 	component adder is
 		port
 		(
-			nibble1, nibble2 : in unsigned(35 downto 0); 
-			sum       : out unsigned(35 downto 0); 
+			nibble1, nibble2 : in signed(35 downto 0); 
+			sum       : out signed(35 downto 0)
 		);
 	end component;
 	
 	component flipflop is
-	port ( d, clk, en : in std_logic;
-	       q 		  : out std_logic
-	);
+	port ( d      : in signed;
+		 clk,en, reset : in std_logic;
+	   q 		  : out signed
+);
 	end component;
 
 	begin
@@ -121,115 +110,118 @@ architecture arch of audiofilter is
 		-- datab => 
 		-- result => s1Output);
 		--done with filterSection_1in
-		
+	
         
     --sec1
     
-	s(1)adder: adder port map(
+	s1adder: adder port map(
 		nibble1 => filterSection_1in,
-		nibble1 => a2Output,
-		sum => b1input,
-		carry_out=> null
-	)
+		nibble2 => a2Output,
+		sum => b1input
+		--carry_out=> null
+	);
 	
 	b11multi: multi_inst port map(
 		dataa => b1input,
-		datab => B(1)(1),
+		datab => B11,
 		result => b1Output
-	)
+	);
 	
 	badder: adder port map(
 		nibble1 => b1Output,
 		nibble2 => b2Output,
 		sum => sec1
-		)
+		);
 		
 	sec1ff1: flipflop  port map(
 		clk => clk,
 		d => b1input,
 		en => dataReq,
+		reset => reset,
 		q => ab2Output
-	)
-	b(2)(1)multi: multi_inst port map(
+	);
+	b21multi: multi_inst port map(
 		dataa => ab2Output,
-		datab => B(2)(1),
+		datab => B21,
 		result => b2Output
-	)
-	a(2)(1)multi: multi_inst port map(
+	);
+	a21multi: multi_inst port map(
 		dataa => ab2Output,
-		datab => a(2)(1),
+		datab => A21,
 		result => a2Output
-	)
+	);
     
     --sec1.5
     
-    s1adder: adder port map(
+    s15adder: adder port map(
         nibble1 => sec1,
         nibble2 => a22Output,
         sum => sec1Output
-    )
+    );
     
     s12adder: adder port map(
         nibble1 => sec1Output,
         nibble2 => a22Output,
         sum     => b12input
-    )
+    );
     
     b12multi: multi_inst port map(
     	dataa => b12input,
-		datab => b(2)(1),
+		datab => B21,
 		result => b12Output
-    )
+    );
     
     badder2: adder port map(
         nibble1 => b12Output,
         nibble2 => b22Output,
-        sum     => badder2output,
-    )
+        sum     => badder2output
+    );
     
     badder3: adder port map(
         nibble1 => badder2output,
         nibble2 => b32Output,
-        sum     => sec2,
-    )
+        sum     => sec2
+    );
     
     b22multi: multi_inst port map(
     	dataa => ff21output,
-		datab => b(2)(2),
+		datab => B22,
 		result => b22Output
-    )
+    );
     
     a22multi: multi_inst port map(
     	dataa => ff21output,
-		datab => a(2)(2),
+		datab => A22,
 		result => a22Output
-    )
+    );
     
     a32multi: multi_inst port map(
     	dataa => ff22output,
-		datab => a(3)(2),
+		datab => A32,
 		result => a32Output
-    )
+    );
     
     b32multi: multi_inst port map(
     	dataa => ff22output,
-		datab => b(3)(2),
+		datab => B32,
 		result => b22Output
-    )
+    );
     
     s1ff1 :flipflop port map(
         d => b12input,
         clk => clk,
         en => dataReq,
+		  reset => reset,
         q => ff21output
-    )
+    );
 
     s1ff2 :flipflop port map(
         d => ff21output,
         clk => clk,
+		  reset => reset,
         en => dataReq,
         q => ff22output
-    )
+    );
     
     --section 2
     
@@ -237,79 +229,90 @@ architecture arch of audiofilter is
         nibble1 => sec2,
         nibble2 => a23Output,
         sum     => s2adder1Output
-    )
+    );
     
     s2adder2: adder port map(
         nibble1 => s2adder1Output,
         nibble2 => a33Output,
         sum     => s2adder2Output
-    )
+    );
     
     b13multi: multi_inst port map(
         dataa => s2adder2Output,
-        datab => B(1)(3),
+        datab => B13,
         result => b13Output
-    )
+    );
     
     s2adder3:adder port map(
         nibble1 => b13Output,
         nibble2 => b23Output,
         sum     => s2adder3Output
-    )
+    );
     
     s2ff1: flipflop port map(
         d => s2adder2Output,
         clk => clk,
         en => dataReq,
+		  reset => reset,
         q=> ff31output
-    )
+    );
     
     s2ff2: flipflop port map(
         d => ff31output,
         clk => clk,
+		  reset => reset,
         en => dataReq,
         q=> ff32output
-    )
+    );
     
     a23multi: multi_inst port map(
         dataa => ff31output,
-        datab => a(2)(3),
+        datab => A23,
         result => a23Output
-    )
+    );
     
     b23multi: multi_inst port map(
         dataa => ff31output,
-        datab => B(2)(3),
+        datab => B23,
         result => b23Output
-    )
+    );
     
     a33multi: multi_inst port map(
         dataa => ff32output,
-        datab => a(3)(3),
+        datab => A33,
         result => a33Output
-    )
+    );
     
     b33multi: multi_inst port map(
         dataa => ff32output,
-        datab => B(3)(3),
+        datab => B33,
         result => b33Output
-    )
+    );
     
     s2adder4:adder port map(
         nibble1 => s2adder3Output,
         nibble2 => b33Output,
         sum     => audioSampleFiltered
-    )
+    );
     
     
-    
-	
-	if (rising_edge(clk)) then
-		if (reset = ‘1’) then
-			delayOutput <= (others => 0);
-		elsif (dataReq = ‘1’) then
-			delayOutput <= delayInput;
-	end if;
-end if;
+		 -- Grab just one channel from input
+	filterInOneChannel <= audioSample(35 downto 0);
 
+	-- Simply resize the 16 bit input to 36 bits. There is an implied
+	-- divide by 4 involved in this, since we are going from 15 bits to
+	-- 17 bits after the implied decimal point. This will be canceled by
+	-- the multiply by 4 on the output.
+	filterInResized <= resize(filterInOneChannel, filterInResized'length);
+
+	-- Implement the divide by 16 which is multiplier s(1)
+	filterSection_1in <= shift_right(filterInResized, 4);
+
+	-- Grab the lowest 16 bits of your filter output and place them
+	-- into the output port. There is an implied multiply by 4 here
+	-- due to going from 15 bits to 17 bits after the decimal. This cancels
+	-- the previous divide by 4.
+	audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
+	
+	
 end architecture arch;
