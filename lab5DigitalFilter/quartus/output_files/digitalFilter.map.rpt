@@ -1,5 +1,5 @@
 Analysis & Synthesis report for digitalFilter
-Tue Apr 17 21:16:04 2018
+Tue Apr 17 22:37:40 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Tue Apr 17 21:16:04 2018           ;
+; Analysis & Synthesis Status ; Failed - Tue Apr 17 22:37:40 2018           ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; digitalFilter                               ;
 ; Top-level Entity Name       ; lab4                                        ;
@@ -162,15 +162,13 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Apr 17 21:15:44 2018
+    Info: Processing started: Tue Apr 17 22:37:19 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digitalFilter -c digitalFilter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Error (10500): VHDL syntax error at flipflop.vhd(20) near text { File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 20
-Error (10500): VHDL syntax error at flipflop.vhd(20) near text "{";  expecting "end", or "(", or an identifier, or a sequential statement File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 20
-Error (10500): VHDL syntax error at flipflop.vhd(22) near text } File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 22
-Error (10500): VHDL syntax error at flipflop.vhd(22) near text "}";  expecting "end", or "(", or an identifier, or a sequential statement File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 22
-Info (12021): Found 0 design units, including 0 entities, in source file flipflop.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file flipflop.vhd
+    Info (12022): Found design unit 1: flipflop-arch File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 16
+    Info (12023): Found entity 1: flipflop File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/flipflop.vhd Line: 10
 Error (10500): VHDL syntax error at multi_inst.vhd(1) near text "multi_inst";  expecting "entity", or "architecture", or "use", or "library", or "package", or "configuration" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/multi_inst.vhd Line: 1
 Info (12021): Found 0 design units, including 0 entities, in source file multi_inst.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file nios_system/synthesis/nios_system.vhd
@@ -315,25 +313,25 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/michael/documents/college/embeded/lab5digitalfilter/src/codec_dac_interface.vhd
     Info (12022): Found design unit 1: codec_dac_interface-codec_dac_interface_arch File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/src/codec_dac_interface.vhd Line: 25
     Info (12023): Found entity 1: codec_dac_interface File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/src/codec_dac_interface.vhd Line: 13
-Error (10500): VHDL syntax error at audiofilter.vhd(9) near text "signal";  expecting "entity", or "architecture", or "use", or "library", or "package", or "configuration" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 9
-Error (10523): Ignored construct audiofilter at audiofilter.vhd(81) due to previous errors File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 81
-Error (10500): VHDL syntax error at audiofilter.vhd(107) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 107
-Error (10500): VHDL syntax error at audiofilter.vhd(126) near text "adder";  expecting "(", or "'", or "." File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 126
-Error (10500): VHDL syntax error at audiofilter.vhd(133) near text "b11multi";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 133
-Error (10500): VHDL syntax error at audiofilter.vhd(139) near text "badder";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 139
-Error (10500): VHDL syntax error at audiofilter.vhd(145) near text "sec1ff1";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 145
-Error (10500): VHDL syntax error at audiofilter.vhd(151) near text "b";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 151
-Error (10500): VHDL syntax error at audiofilter.vhd(151) near text "multi";  expecting "(", or "'", or "." File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 151
-Error (10500): VHDL syntax error at audiofilter.vhd(156) near text "a";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 156
-Error (10500): VHDL syntax error at audiofilter.vhd(156) near text "multi";  expecting "(", or "'", or "." File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 156
-Error (10500): VHDL syntax error at audiofilter.vhd(164) near text "s1adder";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 164
-Error (10500): VHDL syntax error at audiofilter.vhd(170) near text "s12adder";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 170
-Error (10500): VHDL syntax error at audiofilter.vhd(176) near text "b12multi";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 176
-Error (10500): VHDL syntax error at audiofilter.vhd(182) near text "badder2";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 182
-Error (10500): VHDL syntax error at audiofilter.vhd(186) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 186
-Error (10500): VHDL syntax error at audiofilter.vhd(192) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 192
-Error (10500): VHDL syntax error at audiofilter.vhd(200) near text "a22multi";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 200
-Error (10500): VHDL syntax error at audiofilter.vhd(206) near text "a32multi";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 206
+Error (10500): VHDL syntax error at audiofilter.vhd(11) near text "filterInOneChannel";  expecting "entity", or "architecture", or "use", or "library", or "package", or "configuration" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 11
+Error (10523): Ignored construct audiofilter at audiofilter.vhd(28) due to previous errors File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 28
+Error (10500): VHDL syntax error at audiofilter.vhd(40) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 40
+Error (10500): VHDL syntax error at audiofilter.vhd(41) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 41
+Error (10500): VHDL syntax error at audiofilter.vhd(42) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 42
+Error (10500): VHDL syntax error at audiofilter.vhd(43) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 43
+Error (10500): VHDL syntax error at audiofilter.vhd(44) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 44
+Error (10500): VHDL syntax error at audiofilter.vhd(45) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 45
+Error (10500): VHDL syntax error at audiofilter.vhd(47) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 47
+Error (10500): VHDL syntax error at audiofilter.vhd(48) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 48
+Error (10500): VHDL syntax error at audiofilter.vhd(49) near text "(";  expecting ":", or "," File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 49
+Error (10500): VHDL syntax error at audiofilter.vhd(50) near text "constant";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 50
+Error (10500): VHDL syntax error at audiofilter.vhd(51) near text "constant";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 51
+Error (10500): VHDL syntax error at audiofilter.vhd(54) near text "signal";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 54
+Error (10500): VHDL syntax error at audiofilter.vhd(109) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 109
+Error (10500): VHDL syntax error at audiofilter.vhd(128) near text "adder";  expecting "(", or "'", or "." File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 128
+Error (10500): VHDL syntax error at audiofilter.vhd(135) near text "b11multi";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 135
+Error (10500): VHDL syntax error at audiofilter.vhd(141) near text "badder";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 141
+Error (10500): VHDL syntax error at audiofilter.vhd(147) near text "sec1ff1";  expecting ";" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/audiofilter.vhd Line: 147
 Info (12021): Found 0 design units, including 0 entities, in source file audiofilter.vhd
 Error (10500): VHDL syntax error at adder.vhd(16) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/adder.vhd Line: 16
 Error (10500): VHDL syntax error at adder.vhd(21) near text "begin";  expecting an identifier ("begin" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/adder.vhd Line: 21
@@ -342,11 +340,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file multi.v
     Info (12022): Found design unit 1: multi-SYN File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/multi.vhd Line: 53
     Info (12023): Found entity 1: multi File: C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/multi.vhd Line: 43
 Info (144001): Generated suppressed messages file C:/Users/Michael/Documents/College/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 26 errors, 1 warning
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 22 errors, 1 warning
     Error: Peak virtual memory: 770 megabytes
-    Error: Processing ended: Tue Apr 17 21:16:06 2018
-    Error: Elapsed time: 00:00:22
-    Error: Total CPU time (on all processors): 00:00:48
+    Error: Processing ended: Tue Apr 17 22:37:42 2018
+    Error: Elapsed time: 00:00:23
+    Error: Total CPU time (on all processors): 00:00:50
 
 
 +------------------------------------------+

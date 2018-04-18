@@ -17,9 +17,9 @@ architecture arch of flipflop is
 begin
 process(clk,en)
 begin
-if(rising_edge(clk) and clk = '1' and en = '1') then{
+if(rising_edge(clk) and clk = '1' and en = '1') then
 	q <= d;
-	}
+	
 end if;
 end process;
 end arch;

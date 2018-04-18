@@ -5,60 +5,7 @@ use ieee.std_logic_signed.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
--- Signal declarations
-signal filterInOneChannel : signed(15 downto 0);
-signal filterInResized : signed(35 downto 0);
-signal filterSection_1in : signed(35 downto 0);
-signal filterOutput : signed(35 downto 0);
 
-signal s1Output : signed(35 downto 0);
-signal b1input : signed(35 downto 0);
-signal b12input : signed(35 downto 0);
-signal b1Output : signed(35 downto 0);
-signal ab2Output : signed(35 downto 0);
-
-signal ff21output : signed(35 downto 0);
-signal ff22output : signed(35 downto 0);
-
-signal ff31output : signed(35 downto 0);
-signal ff32output : signed(35 downto 0);
-
-signal s2adder1Output : signed(35 downto 0);
-signal s2adder2Output : signed(35 downto 0);
-signal s2adder3Output : signed(35 downto 0);
-
-signal badder2output : signed(35 downto 0);
-signal b2Output : signed(35 downto 0);
-signal b12Output : signed(35 downto 0);
-signal b13Output : signed(35 downto 0);
-signal b22Output : signed(35 downto 0);
-signal b23Output : signed(35 downto 0);
-signal b32Output : signed(35 downto 0);
-signal b33Output : signed(35 downto 0);
-
-signal a2Output : signed(35 downto 0);
-signal a22Output : signed(35 downto 0);
-signal a23Output : signed(35 downto 0);
-signal a32Output : signed(35 downto 0);
-signal a33Output : signed(35 downto 0);
-
-signal sec1Output : signed(35 downto 0);
-signal sec1       : signed(35 downto 0);
-signal sec2       : signed(35 downto 0);
-
---constant declarations
-constant B(1)(1) : std_logic_signed(35 downto 0) := x"E45";
-constant B(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
-constant B(1)(2) : std_logic_signed(35 downto 0) := x"15B"; --.0026446 to 347
-constant B(2)(2) : std_logic_signed(35 downto 0) := x"2B7"; -- .00529893 to 695
-constant B(3)(2) : std_logic_signed(35 downto 0) := x"800B"; --.0026446
-constant B(3)(3) : std_logic_signed(35 downto 0) := x"15B"; --.25008 to 327793
-
-constant a(2)(1) : std_logic_signed(35 downto 0) := x"1D1EC";-- - 91
-constant a(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
-constant a(2)(2) : std_logic_signed(35 downto 0) := x"1D1EC"-- -1.9349
-constant a(3)(2) : std_logic_signed(35 downto 0) := x"1E317"-- .94353 to 123671
-constant a(3)(3) : std_logic_signed(35 downto 0) := x"1B79C"-- .85861 TO 1122540
 
 -- Grab just one channel from input
 filterInOneChannel <= i_audioSample(35 downto 0);
@@ -89,6 +36,61 @@ entity audiofilter is
 end entity;
 
 architecture arch of audiofilter is
+	--constant declarations
+	constant B(1)(1) : std_logic_signed(35 downto 0) := x"E45";
+	constant B(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
+	constant B(1)(2) : std_logic_signed(35 downto 0) := x"15B"; --.0026446 to 347
+	constant B(2)(2) : std_logic_signed(35 downto 0) := x"2B7"; -- .00529893 to 695
+	constant B(3)(2) : std_logic_signed(35 downto 0) := x"800B"; --.0026446
+	constant B(3)(3) : std_logic_signed(35 downto 0) := x"15B"; --.25008 to 327793
+
+	constant a(2)(1) : std_logic_signed(35 downto 0) := x"1D1EC";-- - 91
+	constant a(3)(1) : std_logic_signed(35 downto 0) := (others => '0');
+	constant a(2)(2) : std_logic_signed(35 downto 0) := x"1D1EC"-- -1.9349
+	constant a(3)(2) : std_logic_signed(35 downto 0) := x"1E317"-- .94353 to 123671
+	constant a(3)(3) : std_logic_signed(35 downto 0) := x"1B79C"-- .85861 TO 1122540
+
+	-- Signal declarations
+	signal filterInOneChannel : signed(15 downto 0);
+	signal filterInResized : signed(35 downto 0);
+	signal filterSection_1in : signed(35 downto 0);
+	signal filterOutput : signed(35 downto 0);
+
+	signal s1Output : signed(35 downto 0);
+	signal b1input : signed(35 downto 0);
+	signal b12input : signed(35 downto 0);
+	signal b1Output : signed(35 downto 0);
+	signal ab2Output : signed(35 downto 0);
+
+	signal ff21output : signed(35 downto 0);
+	signal ff22output : signed(35 downto 0);
+
+	signal ff31output : signed(35 downto 0);
+	signal ff32output : signed(35 downto 0);
+
+	signal s2adder1Output : signed(35 downto 0);
+	signal s2adder2Output : signed(35 downto 0);
+	signal s2adder3Output : signed(35 downto 0);
+
+	signal badder2output : signed(35 downto 0);
+	signal b2Output : signed(35 downto 0);
+	signal b12Output : signed(35 downto 0);
+	signal b13Output : signed(35 downto 0);
+	signal b22Output : signed(35 downto 0);
+	signal b23Output : signed(35 downto 0);
+	signal b32Output : signed(35 downto 0);
+	signal b33Output : signed(35 downto 0);
+
+	signal a2Output : signed(35 downto 0);
+	signal a22Output : signed(35 downto 0);
+	signal a23Output : signed(35 downto 0);
+	signal a32Output : signed(35 downto 0);
+	signal a33Output : signed(35 downto 0);
+
+	signal sec1Output : signed(35 downto 0);
+	signal sec1       : signed(35 downto 0);
+	signal sec2       : signed(35 downto 0);
+
 	--circles are adders, triangles are multipliers
 
 	component multi_inst is
