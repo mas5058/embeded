@@ -1,5 +1,5 @@
 Analysis & Synthesis report for digitalFilter
-Wed Apr 18 16:57:08 2018
+Fri Apr 20 13:05:25 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
@@ -222,10 +222,9 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 214. Port Connectivity Checks: "nios_system:u0"
 215. Port Connectivity Checks: "synchronizer:synchronizer_inst"
 216. Post-Synthesis Netlist Statistics for Top Partition
-217. Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub
-218. Elapsed Time Per Partition
-219. Analysis & Synthesis Messages
-220. Analysis & Synthesis Suppressed Messages
+217. Elapsed Time Per Partition
+218. Analysis & Synthesis Messages
+219. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -252,7 +251,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 18 16:57:08 2018           ;
+; Analysis & Synthesis Status     ; Successful - Fri Apr 20 13:05:24 2018           ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
 ; Revision Name                   ; digitalFilter                                   ;
 ; Top-level Entity Name           ; lab4                                            ;
@@ -1638,15 +1637,6 @@ Encoding Type:  One-Hot
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |lab4|debounce:debounce_inst1|state                                                                                                                                                                                                                                                                                                                                                      ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |lab4|nios_system:u0|nios_system_mm_interconnect_0:mm_interconnect_0|nios_system_mm_interconnect_0_router:router|src_channel[3]                                                                                                                                                                                                                                                          ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |lab4|debounce:debounce_inst1|state                                                                                                                                                                                                                                                                                                                                                      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]                                                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|shadow_irf_reg[2][0]                                              ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[0]                                              ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[3]                                              ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[2][0]                                                     ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]                                        ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|word_counter[3]                           ;
-; 34:1               ; 4 bits    ; 88 LEs        ; 68 LEs               ; 20 LEs                 ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]                                                ;
-; 28:1               ; 4 bits    ; 72 LEs        ; 52 LEs               ; 20 LEs                 ; Yes        ; |lab4|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|WORD_SR[0]                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -5773,44 +5763,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 
 
-+------------------------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub ;
-+-----------------------+------------------------------------------+
-; Type                  ; Count                                    ;
-+-----------------------+------------------------------------------+
-; arriav_ff             ; 85                                       ;
-;     CLR               ; 6                                        ;
-;     ENA               ; 30                                       ;
-;     ENA CLR           ; 24                                       ;
-;     ENA CLR SLD       ; 2                                        ;
-;     SCLR              ; 7                                        ;
-;     plain             ; 16                                       ;
-; arriav_lcell_comb     ; 112                                      ;
-;     extend            ; 2                                        ;
-;         7 data inputs ; 2                                        ;
-;     normal            ; 110                                      ;
-;         0 data inputs ; 1                                        ;
-;         1 data inputs ; 4                                        ;
-;         2 data inputs ; 26                                       ;
-;         3 data inputs ; 18                                       ;
-;         4 data inputs ; 13                                       ;
-;         5 data inputs ; 25                                       ;
-;         6 data inputs ; 23                                       ;
-; boundary_port         ; 141                                      ;
-;                       ;                                          ;
-; Max LUT depth         ; 3.00                                     ;
-; Average LUT depth     ; 1.57                                     ;
-+-----------------------+------------------------------------------+
-
-
-+---------------------------------+
-; Elapsed Time Per Partition      ;
-+------------------+--------------+
-; Partition Name   ; Elapsed Time ;
-+------------------+--------------+
-; Top              ; 00:00:03     ;
-; sld_hub:auto_hub ; 00:00:00     ;
-+------------------+--------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -5819,7 +5778,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
-    Info: Processing started: Wed Apr 18 16:56:30 2018
+    Info: Processing started: Fri Apr 20 13:04:45 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digitalFilter -c digitalFilter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -5977,6 +5936,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file adder.v
 Info (12021): Found 2 design units, including 1 entities, in source file multi.vhd
     Info (12022): Found design unit 1: multi-SYN File: S:/Embedded/lab5DigitalFilter/quartus/multi.vhd Line: 53
     Info (12023): Found entity 1: multi File: S:/Embedded/lab5DigitalFilter/quartus/multi.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file audiofilter_tb.vhd
+    Info (12022): Found design unit 1: audiofilter_tb-test File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd Line: 12
+    Info (12023): Found entity 1: audiofilter_tb File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd Line: 9
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at lab4.vhd(28): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 28
 Warning (10541): VHDL Signal Declaration warning at lab4.vhd(29): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 29
@@ -6257,7 +6219,7 @@ Critical Warning (127005): Memory depth (1024) in the design file differs from m
 Info (12128): Elaborating entity "hexDisplayDriver" for hierarchy "hexDisplayDriver:hexDisplayDriver_inst0" File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 256
 Info (12128): Elaborating entity "codec_dac_interface" for hierarchy "codec_dac_interface:codec_dac_inst" File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 383
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.04.18.16:56:52 Progress: Loading sld66a3ad86/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.04.20.13:05:09 Progress: Loading sld66a3ad86/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -6424,7 +6386,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 56
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 123 registers lost all their fanouts during netlist optimizations.
-Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
 Warning (20013): Ignored 24 assignments for entity "equalizer" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity equalizer -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity equalizer -section_id Top was ignored
@@ -6494,10 +6455,10 @@ Info (21057): Implemented 2312 device resources after synthesis - the final reso
     Info (21061): Implemented 1942 logic cells
     Info (21064): Implemented 176 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 220 warnings
-    Info: Peak virtual memory: 875 megabytes
-    Info: Processing ended: Wed Apr 18 16:57:08 2018
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:52
+    Info: Peak virtual memory: 890 megabytes
+    Info: Processing ended: Fri Apr 20 13:05:25 2018
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:00:55
 
 
 +------------------------------------------+

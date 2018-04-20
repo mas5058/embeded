@@ -8,9 +8,9 @@ use ieee.std_logic_textio.all;
 use std.textio.all;
 
 entity flipflop is
-port ( d      			: in signed;
-		 clk,en, reset : in std_logic;
-	    q 	  			: out signed
+port ( d      			: in signed (35 downto 0);
+      clk,en, reset : in std_logic;
+  	q 	  	      : out signed(35 downto 0)
 );
 end flipflop;
 
