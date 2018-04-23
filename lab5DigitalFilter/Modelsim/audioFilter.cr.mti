@@ -1,4 +1,4 @@
-S:/Embedded/lab5DigitalFilter/quartus/adder.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/adder.vhd
+S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -6,10 +6,9 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_SIGNED
--- Loading package STD_LOGIC_UNSIGNED
 -- Loading package std_logic_textio
--- Compiling entity adder
--- Compiling architecture Behavioral of adder
+-- Compiling entity flipflop
+-- Compiling architecture arch of flipflop
 
 } {} {}} S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
@@ -24,7 +23,7 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Compiling entity audiofilter
 -- Compiling architecture arch of audiofilter
 
-} {} {}} S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd
+} {} {}} S:/Embedded/lab5DigitalFilter/quartus/adder.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/adder.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -32,9 +31,10 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_SIGNED
+-- Loading package STD_LOGIC_UNSIGNED
 -- Loading package std_logic_textio
--- Compiling entity flipflop
--- Compiling architecture arch of flipflop
+-- Compiling entity adder
+-- Compiling architecture Behavioral of adder
 
 } {} {}} S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
@@ -49,6 +49,13 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Compiling entity audiofilter_tb
 -- Compiling architecture test of audiofilter_tb
 
+} {} {}} S:/Embedded/lab5DigitalFilter/quartus/filter_mult.v {1 {vlog -work work -stats=none S:/Embedded/lab5DigitalFilter/quartus/filter_mult.v
+Model Technology ModelSim DE-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module filter_mult
+
+Top level modules:
+	filter_mult
+
 } {} {}} S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package STANDARD
@@ -57,13 +64,5 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package altera_mf_components
 -- Compiling entity dualPortRAM
 -- Compiling architecture SYN of dualportram
-
-} {} {}} S:/Embedded/lab5DigitalFilter/quartus/multi.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/Embedded/lab5DigitalFilter/quartus/multi.vhd
-Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity multi
--- Compiling architecture SYN of multi
 
 } {} {}}
