@@ -1,0 +1,284 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Software/ModelSim/10.6c/examples
+Eadder
+Z0 w1524084988
+Z1 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z5 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z8 dS:/Embedded/lab5DigitalFilter/Modelsim
+Z9 8S:/Embedded/lab5DigitalFilter/quartus/adder.vhd
+Z10 FS:/Embedded/lab5DigitalFilter/quartus/adder.vhd
+l0
+L11
+VV5`4`kbOLdm[Z8ePQ^EoC0
+!s100 a>jJ=^X^a<HiFIc>k_a9H3
+Z11 OP;C;10.6c;65
+32
+Z12 !s110 1524503958
+!i10b 1
+Z13 !s108 1524503958.000000
+Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/adder.vhd|
+Z15 !s107 S:/Embedded/lab5DigitalFilter/quartus/adder.vhd|
+!i113 1
+Z16 o-work work -2002 -explicit
+Z17 tExplicit 1 CvgOpt 0
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 5 adder 0 22 V5`4`kbOLdm[Z8ePQ^EoC0
+l22
+L20
+VcgV2amg?zAA;2oYchCgBU0
+!s100 3^:M;@1TeBCX5E19@Ha]:2
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Eaudiofilter
+Z18 w1524246451
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+Z19 8S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd
+Z20 FS:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd
+l0
+L10
+V?VKaNi`79ZYlo166hK]Jf3
+!s100 iN@`ClMWMa[ECj2A4:NJK0
+R11
+32
+Z21 !s110 1524508475
+!i10b 1
+Z22 !s108 1524508475.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd|
+Z24 !s107 S:/Embedded/lab5DigitalFilter/quartus/audiofilter.vhd|
+!i113 1
+R16
+R17
+Aarch
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+Z25 DEx4 work 11 audiofilter 0 22 ?VKaNi`79ZYlo166hK]Jf3
+l126
+L20
+Z26 V[<@n9iDzj9J946mIbm1@g3
+Z27 !s100 HOEnlNNC6J;=[Lj@2<GzU2
+R11
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 1
+R16
+R17
+Eaudiofilter_tb
+Z28 w1524503626
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+Z29 8S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd
+Z30 FS:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd
+l0
+L9
+Vd;4VfHzYnBNf9Dn9A488O3
+!s100 UQb[l`k?e2?gn=^3g:1^J0
+R11
+32
+Z31 !s110 1524508461
+!i10b 1
+Z32 !s108 1524508461.000000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd|
+Z34 !s107 S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd|
+!i113 1
+R16
+R17
+Atest
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 14 audiofilter_tb 0 22 d;4VfHzYnBNf9Dn9A488O3
+l40
+L12
+V:>C[JRC=V3mQoECnlR<LQ3
+!s100 =cLcR1CLL]SeYM]Ya7EWT2
+R11
+32
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R16
+R17
+Edualportram
+Z35 w1524082175
+Z36 DPx9 altera_mf 20 altera_mf_components 0 22 T4<z`h6BL:_nTXI;4TFDa0
+R6
+R7
+R8
+Z37 8S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd
+Z38 FS:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd
+l0
+L43
+V>nT4ebz7=d=9nBicUgi9l0
+!s100 U1_nX2Yd@V>4D6f?5hDc63
+R11
+32
+Z39 !s110 1524503959
+!i10b 1
+R13
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd|
+Z41 !s107 S:/Embedded/lab5DigitalFilter/quartus/dualPortRAM.vhd|
+!i113 1
+R16
+R17
+Asyn
+R36
+R6
+R7
+DEx4 work 11 dualportram 0 22 >nT4ebz7=d=9nBicUgi9l0
+l64
+L59
+VkU5JPOE_8_?EUg:a;6dc_0
+!s100 Z`=nPbfS4BnEZHFhEHoZn2
+R11
+32
+R39
+!i10b 1
+R13
+R40
+R41
+!i113 1
+R16
+R17
+Eflipflop
+Z42 w1524244991
+R1
+R3
+R4
+R5
+R6
+R7
+R8
+Z43 8S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd
+Z44 FS:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd
+l0
+L10
+VZ=e4=F8VEk;IS4fAl6YB?3
+!s100 Y5S[O_WWS:=^>CD`md]ee3
+R11
+32
+R39
+!i10b 1
+Z45 !s108 1524503959.000000
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd|
+Z47 !s107 S:/Embedded/lab5DigitalFilter/quartus/flipflop.vhd|
+!i113 1
+R16
+R17
+Aarch
+R1
+R3
+R4
+R5
+R6
+R7
+DEx4 work 8 flipflop 0 22 Z=e4=F8VEk;IS4fAl6YB?3
+l18
+L17
+VLjPYR6SI5;PC1fQkzGk`Q3
+!s100 ?4[@H=oVadVm<gAF9KM?02
+R11
+32
+R39
+!i10b 1
+R45
+R46
+R47
+!i113 1
+R16
+R17
+Emulti
+Z48 w1524082739
+R6
+R7
+R8
+Z49 8S:/Embedded/lab5DigitalFilter/quartus/multi.vhd
+Z50 FS:/Embedded/lab5DigitalFilter/quartus/multi.vhd
+l0
+L43
+Vm5ib7T5l67Cz9[`>UD>1m3
+!s100 hF`C5U2lRM@6mPazVZnF[1
+R11
+32
+R39
+!i10b 1
+R45
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|S:/Embedded/lab5DigitalFilter/quartus/multi.vhd|
+Z52 !s107 S:/Embedded/lab5DigitalFilter/quartus/multi.vhd|
+!i113 1
+R16
+R17
+Asyn
+R6
+R7
+DEx4 work 5 multi 0 22 m5ib7T5l67Cz9[`>UD>1m3
+l75
+L53
+Vk9XBdoGBP`][1I]zDzZ:a2
+!s100 4Oz>YIcg@XnD@4`CiTQ]:2
+R11
+32
+R39
+!i10b 1
+R45
+R51
+R52
+!i113 1
+R16
+R17
