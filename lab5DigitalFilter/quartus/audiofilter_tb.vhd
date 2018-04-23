@@ -15,9 +15,9 @@ component audiofilter is
 	port (
 		clk : in std_logic;
 		reset : in std_logic;
-		audioSample : in signed(35 downto 0);
+		audioSample : in signed(31 downto 0);
 		dataReq : in std_logic;
-		audioSampleFiltered : out signed(35 downto 0)
+		audioSampleFiltered : out signed(31 downto 0)
 	);
 end component;
 
@@ -25,13 +25,15 @@ end component;
 	signal reset_tb 			  : std_logic;
 	signal dataReq_tb			  : std_logic;
 	signal audioSample_tb 		  : signed(31 downto 0);
-	signal audioSampleFiltered_tb : signed(15 downto 0);
+	signal audioSample_sig 		  : signed(15 downto 0);
+	signal audioSampleFiltered_tb : signed(31 downto 0);
+	signal audioSampleFiltered_sig : signed(15 downto 0);
 	
 	signal period : time := 20 ns;
     
    signal audioSample_w : signed  (31 downto 0);
 	
-	type audArray is array (39 downto 0) of signed(35 downto 0);
+	type audArray is array (39 downto 0) of signed(15 downto 0);
 	
 	signal audioSampleArray : audArray;
 	
@@ -48,7 +50,8 @@ end component;
 	
 	clk_tb <= '0';
 	clk_tb <= not clk_tb after period/2;
-    audioSample_w <= (audioSample_tb & audioSample_tb);
+    audioSample_w <= (audioSample_sig & audioSample_sig);
+    
     
 	stimulus : process is
 		file read_file : text open read_mode is "./src/verification_src/one_cycle_200_8k.csv";
@@ -65,7 +68,7 @@ end component;
         for i in 0 to 39 loop
             readline(read_file, lineIn);
             read(lineIn, readValue);
-            audioSampleArray(i) <= to_signed(readValue, 36);
+            audioSampleArray(i) <= to_signed(readValue, 16);
             wait for 50 ns;
         end loop;
         file_close(read_file);
@@ -73,8 +76,8 @@ end component;
 		for i in 1 to 100 loop
 			for j in 0 to 39 loop
                 wait for 20000 ns;
-                audioSample_tb <= audioSampleArray(i);
-                audioSampleFiltered_tb <= audioSample_w (35 downto 0);
+                audioSample_sig <= audioSampleArray(i);
+                audioSampleFiltered_sig <= audioSample_w (15 downto 0);
                 audioSampleArray(i) <= to_signed(readValue, (16));
                 wait for 50 ns;
                 dataReq_tb <= '1';
