@@ -1,16 +1,16 @@
-Fitter Status : Successful - Mon Apr 23 15:55:07 2018
+Fitter Status : Successful - Mon Apr 23 16:27:40 2018
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 Revision Name : cacheDemo
 Top-level Entity Name : cache_demo
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1,008 / 32,070 ( 3 % )
-Total registers : 1572
+Logic utilization (in ALMs) : 1,170 / 32,070 ( 4 % )
+Total registers : 1820
 Total pins : 18 / 457 ( 4 % )
 Total virtual pins : 0
-Total block memory bits : 307,344 / 4,065,280 ( 8 % )
-Total RAM Blocks : 42 / 397 ( 11 % )
+Total block memory bits : 324,496 / 4,065,280 ( 8 % )
+Total RAM Blocks : 46 / 397 ( 12 % )
 Total DSP Blocks : 3 / 87 ( 3 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

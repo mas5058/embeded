@@ -1,9 +1,9 @@
-16:16:14 **** Incremental Build of configuration Nios II for project NoDataCache ****
+16:36:03 **** Incremental Build of configuration Nios II for project NoDataCache ****
 make all 
 Info: Building ../NoDataCache_bsp/
 C:/intelFPGA/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../NoDataCache_bsp/
 [BSP build complete]
 [NoDataCache build complete]
 
-16:16:15 Build Finished (took 1s.360ms)
+16:36:04 Build Finished (took 1s.359ms)
 

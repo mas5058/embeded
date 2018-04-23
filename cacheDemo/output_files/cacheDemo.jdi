@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="63f65d9b39e05b22a5a3"/>
+    <hash md5_digest_80b="a0996a33d2072e2afa55"/>
   </project>
   <file_info>
     <file device="5CSEMA5F31C6" path="cacheDemo.sof" usercode="0xFFFFFFFF"/>
@@ -99,7 +99,7 @@
     </sld_info>
     <sld_info hpath="niosSystem:NiosII" name="NiosII">
       <assignment_values>
-        <assignment_value text="QSYS_NAME niosSystem HAS_SOPCINFO 1 GENERATION_ID 1524512683"/>
+        <assignment_value text="QSYS_NAME niosSystem HAS_SOPCINFO 1 GENERATION_ID 1524515034"/>
       </assignment_values>
       <parameters/>
     </sld_info>
