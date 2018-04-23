@@ -24,12 +24,12 @@ end component;
 	signal clk_tb 				  : std_logic;
 	signal reset_tb 			  : std_logic;
 	signal dataReq_tb			  : std_logic;
-	signal audioSample_tb 		  : signed(35 downto 0);
-	signal audioSampleFiltered_tb : signed(35 downto 0);
+	signal audioSample_tb 		  : signed(31 downto 0);
+	signal audioSampleFiltered_tb : signed(15 downto 0);
 	
 	signal period : time := 20 ns;
     
-   signal audioSample_w : signed  (71 downto 0);
+   signal audioSample_w : signed  (31 downto 0);
 	
 	type audArray is array (39 downto 0) of signed(35 downto 0);
 	
@@ -51,7 +51,7 @@ end component;
     audioSample_w <= (audioSample_tb & audioSample_tb);
     
 	stimulus : process is
-		file read_file : text open read_mode is "./src/verification_src/one_cycle_integer.csv";
+		file read_file : text open read_mode is "./src/verification_src/one_cycle_200_8k.csv";
 		file results_file : text open write_mode is "./src/verification_src/output_waveform.csv";
 		variable lineIn : line;
 		variable lineOut : line;
@@ -65,7 +65,7 @@ end component;
         for i in 0 to 39 loop
             readline(read_file, lineIn);
             read(lineIn, readValue);
-            audioSampleArray(i) <= to_signed(readValue, 16);
+            audioSampleArray(i) <= to_signed(readValue, 36);
             wait for 50 ns;
         end loop;
         file_close(read_file);
@@ -75,7 +75,7 @@ end component;
                 wait for 20000 ns;
                 audioSample_tb <= audioSampleArray(i);
                 audioSampleFiltered_tb <= audioSample_w (35 downto 0);
-                audioSampleArray(i) <= to_signed(readValue, 16);
+                audioSampleArray(i) <= to_signed(readValue, (16));
                 wait for 50 ns;
                 dataReq_tb <= '1';
                 wait for 20 ns;
