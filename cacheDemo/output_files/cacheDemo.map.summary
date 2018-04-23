@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Mon Apr 23 15:54:06 2018
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+Revision Name : cacheDemo
+Top-level Entity Name : cache_demo
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 1571
+Total pins : 18
+Total virtual pins : 0
+Total block memory bits : 307,344
+Total DSP Blocks : 3
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
