@@ -100,7 +100,7 @@ architecture arch of audiofilter is
 	
 	--circles are adders, triangles are multipliers
 
-	component multi_inst is
+	component filter_mult is
 	port (
 			dataa	 : in signed (35 downto 0);
 			datab	 : in signed (35 downto 0);
@@ -124,7 +124,7 @@ architecture arch of audiofilter is
 	end component;
 
 	begin
-	-- s(1)multi : multi_inst port map(
+	-- s(1)multi : filter_mult port map(
 		-- dataa => audioSample,
 		-- datab => 
 		-- result => s1Output);
@@ -140,7 +140,7 @@ architecture arch of audiofilter is
 		--carry_out=> null
 	);
 	
-	b11multi: multi_inst port map(
+	b11multi: filter_mult port map(
 		dataa => b1input,
 		datab => B11,
 		result => b11OutputFull
@@ -159,12 +159,12 @@ architecture arch of audiofilter is
 		reset => reset,
 		q => ab2Output
 	);
-	b21multi: multi_inst port map(
+	b21multi: filter_mult port map(
 		dataa => ab2Output,
 		datab => B21,
 		result => b2OutputFull
 	);
-	a21multi: multi_inst port map(
+	a21multi: filter_mult port map(
 		dataa => ab2Output,
 		datab => A21,
 		result => a2OutputFull
@@ -184,7 +184,7 @@ architecture arch of audiofilter is
         sum     => b12input
     );
     
-    b12multi: multi_inst port map(
+    b12multi: filter_mult port map(
     	dataa => b12input,
 		datab => B21,
 		result => b12OutputFull
@@ -202,25 +202,25 @@ architecture arch of audiofilter is
         sum     => sec2
     );
     
-    b22multi: multi_inst port map(
+    b22multi: filter_mult port map(
     	dataa => ff21output,
 		datab => B22,
 		result => b22OutputFull
     );
     
-    a22multi: multi_inst port map(
+    a22multi: filter_mult port map(
     	dataa => ff21output,
 		datab => A22,
 		result => a22OutputFull
     );
     
-    a32multi: multi_inst port map(
+    a32multi: filter_mult port map(
     	dataa => ff22output,
 		datab => A32,
 		result => a32OutputFull
     );
     
-    b32multi: multi_inst port map(
+    b32multi: filter_mult port map(
     	dataa => ff22output,
 		datab => B32,
 		result => b22OutputFull
@@ -256,7 +256,7 @@ architecture arch of audiofilter is
         sum     => s2adder2Output
     );
     
-    b13multi: multi_inst port map(
+    b13multi: filter_mult port map(
         dataa => s2adder2Output,
         datab => B13,
         result => b13OutputFull
@@ -284,25 +284,25 @@ architecture arch of audiofilter is
         q=> ff32output
     );
     
-    a23multi: multi_inst port map(
+    a23multi: filter_mult port map(
         dataa => ff31output,
         datab => A23,
         result => a23OutputFull
     );
     
-    b23multi: multi_inst port map(
+    b23multi: filter_mult port map(
         dataa => ff31output,
         datab => B23,
         result => b23OutputFull
     );
     
-    a33multi: multi_inst port map(
+    a33multi: filter_mult port map(
         dataa => ff32output,
         datab => A33,
         result => a33OutputFull
     );
     
-    b33multi: multi_inst port map(
+    b33multi: filter_mult port map(
         dataa => ff32output,
         datab => B33,
         result => b33OutputFull
