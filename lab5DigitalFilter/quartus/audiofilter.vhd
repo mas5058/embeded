@@ -19,64 +19,64 @@ end entity;
 
 architecture arch of audiofilter is
 -- Signal declarations
-	signal filterInOneChannel : signed(15 downto 0);
-	signal filterInResized : signed(35 downto 0);
-	signal filterSection_1in : signed(35 downto 0);
-	signal filterOutput : signed(35 downto 0);
+	signal filterInOneChannel : signed(15 downto 0) := (others => '0');
+	signal filterInResized : signed(35 downto 0) := (others => '0');
+	signal filterSection_1in : signed(35 downto 0) := (others => '0');
+	signal filterOutput : signed(35 downto 0) := (others => '0');
 
-	signal s1Output : signed(35 downto 0);
-	signal b1input : signed(35 downto 0);
-	signal b12input : signed(35 downto 0);
-	signal b1Output : signed(35 downto 0);
-	signal ab2Output : signed(35 downto 0);
+	signal s1Output : signed(35 downto 0) := (others => '0');
+	signal b1input : signed(35 downto 0) := (others => '0');
+	signal b12input : signed(35 downto 0):= (others => '0');
+	signal b1Output : signed(35 downto 0):= (others => '0');
+	signal ab2Output : signed(35 downto 0):= (others => '0');
 
-	signal ff21output : signed(35 downto 0);
-	signal ff22output : signed(35 downto 0);
+	signal ff21output : signed(35 downto 0):= (others => '0');
+	signal ff22output : signed(35 downto 0):= (others => '0');
 
-	signal ff31output : signed(35 downto 0);
-	signal ff32output : signed(35 downto 0);
+	signal ff31output : signed(35 downto 0):= (others => '0');
+	signal ff32output : signed(35 downto 0):= (others => '0');
 
-	signal s2adder1Output : signed(35 downto 0);
-	signal s2adder2Output : signed(35 downto 0);
-	signal s2adder3Output : signed(35 downto 0);
+	signal s2adder1Output : signed(35 downto 0):= (others => '0');
+	signal s2adder2Output : signed(35 downto 0):= (others => '0');
+	signal s2adder3Output : signed(35 downto 0):= (others => '0');
 
-	signal badder2output : signed(35 downto 0);
+	signal badder2output : signed(35 downto 0):= (others => '0');
 	
-	signal b2Output : signed(35 downto 0);
-	signal b11Output : signed(35 downto 0);
-	signal b12Output : signed(35 downto 0);
-	signal b13Output : signed(35 downto 0);
-	signal b22Output : signed(35 downto 0);
-	signal b23Output : signed(35 downto 0);
-	signal b32Output : signed(35 downto 0);
-	signal b33Output : signed(35 downto 0);
+	signal b2Output : signed(35 downto 0):= (others => '0');
+	signal b11Output : signed(35 downto 0):= (others => '0');
+	signal b12Output : signed(35 downto 0):= (others => '0');
+	signal b13Output : signed(35 downto 0):= (others => '0');
+	signal b22Output : signed(35 downto 0):= (others => '0');
+	signal b23Output : signed(35 downto 0):= (others => '0');
+	signal b32Output : signed(35 downto 0):= (others => '0');
+	signal b33Output : signed(35 downto 0):= (others => '0');
 	
-	signal  b2OutputFull : signed(71 downto 0);
-	signal b11OutputFull : signed(71 downto 0);
-	signal b12OutputFull : signed(71 downto 0);
-	signal b13OutputFull : signed(71 downto 0);
-	signal b22OutputFull : signed(71 downto 0);
-	signal b23OutputFull : signed(71 downto 0);
-	signal b32OutputFull : signed(71 downto 0);
-	signal b33OutputFull : signed(71 downto 0);
+	signal  b2OutputFull : signed(71 downto 0):= (others => '0');
+	signal b11OutputFull : signed(71 downto 0):= (others => '0');
+	signal b12OutputFull : signed(71 downto 0):= (others => '0');
+	signal b13OutputFull : signed(71 downto 0):= (others => '0');
+	signal b22OutputFull : signed(71 downto 0):= (others => '0');
+	signal b23OutputFull : signed(71 downto 0):= (others => '0');
+	signal b32OutputFull : signed(71 downto 0):= (others => '0');
+	signal b33OutputFull : signed(71 downto 0):= (others => '0');
 
-	signal a2Output : signed(35 downto 0);
-	signal a22Output : signed(35 downto 0);
-	signal a23Output : signed(35 downto 0);
-	signal a32Output : signed(35 downto 0);
-	signal a33Output : signed(35 downto 0);
+	signal a2Output : signed(35 downto 0):= (others => '0');
+	signal a22Output : signed(35 downto 0):= (others => '0');
+	signal a23Output : signed(35 downto 0):= (others => '0');
+	signal a32Output : signed(35 downto 0):= (others => '0');
+	signal a33Output : signed(35 downto 0):= (others => '0');
 	
-	signal s24sum : signed(35 downto 0);
+	signal s24sum : signed(35 downto 0):= (others => '0');
 	
-	signal a2OutputFull :  signed(71 downto 0);
-	signal a22OutputFull : signed(71 downto 0);
-	signal a23OutputFull : signed(71 downto 0);
-	signal a32OutputFull : signed(71 downto 0);
-	signal a33OutputFull : signed(71 downto 0);
+	signal a2OutputFull :  signed(71 downto 0):= (others => '0');
+	signal a22OutputFull : signed(71 downto 0):= (others => '0');
+	signal a23OutputFull : signed(71 downto 0):= (others => '0');
+	signal a32OutputFull : signed(71 downto 0):= (others => '0');
+	signal a33OutputFull : signed(71 downto 0):= (others => '0');
 
-	signal sec1Output : signed(35 downto 0);
-	signal sec1       : signed(35 downto 0);
-	signal sec2       : signed(35 downto 0);
+	signal sec1Output : signed(35 downto 0):= (others => '0');
+	signal sec1       : signed(35 downto 0):= (others => '0');
+	signal sec2       : signed(35 downto 0):= (others => '0');
 
 
 	--constant declarations
@@ -314,27 +314,29 @@ architecture arch of audiofilter is
         sum     => s24sum
     );
     
-	audioSampleFiltered <= s24sum (31 downto 0);
-	b2Output <= b2OutputFull(52 downto 17);
-	b11Output <= b11OutputFull(52 downto 17);
-	b12Output <= b12OutputFull(52 downto 17);
-	b13Output <= b13OutputFull(52 downto 17);
-	b22Output <= b22OutputFull(52 downto 17);
-	b23Output <= b23OutputFull(52 downto 17);
-	b32Output <= b32OutputFull(52 downto 17);
-	b33Output <= b33OutputFull(52 downto 17);
-	
-	 a2Output <= a2OutputFull(52 downto 17);
-	a22Output <= a22OutputFull(52 downto 17);
-	a23Output <= a23OutputFull(52 downto 17);
-	a32Output <= a32OutputFull(52 downto 17);
-	a33Output <= a33OutputFull(52 downto 17);
-	
+    process (clk, reset) is
+    begin
+    if (rising_edge(clk) and clk = '1') then 
     
-		 -- Grab just one channel from input
-	filterInOneChannel <= audioSample(15 downto 0);
-
-	-- Simply resize the 16 bit input to 36 bits. There is an implied
+        audioSampleFiltered <= s24sum (31 downto 0);
+        b2Output <= b2OutputFull(52 downto 17);
+        b11Output <= b11OutputFull(52 downto 17);
+        b12Output <= b12OutputFull(52 downto 17);
+        b13Output <= b13OutputFull(52 downto 17);
+        b22Output <= b22OutputFull(52 downto 17);
+        b23Output <= b23OutputFull(52 downto 17);
+        b32Output <= b32OutputFull(52 downto 17);
+        b33Output <= b33OutputFull(52 downto 17);
+        
+         a2Output <= a2OutputFull(52 downto 17);
+        a22Output <= a22OutputFull(52 downto 17);
+        a23Output <= a23OutputFull(52 downto 17);
+        a32Output <= a32OutputFull(52 downto 17);
+        a33Output <= a33OutputFull(52 downto 17);
+        
+        filterInOneChannel <= audioSample(15 downto 0);
+        
+         --Simply resize the 16 bit input to 36 bits. There is an implied
 	-- divide by 4 involved in this, since we are going from 15 bits to
 	-- 17 bits after the implied decimal point. This will be canceled by
 	-- the multiply by 4 on the output.
@@ -348,6 +350,33 @@ architecture arch of audiofilter is
 	-- due to going from 15 bits to 17 bits after the decimal. This cancels
 	-- the previous divide by 4.
 	audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
+	elsif (reset = '1') then
+        audioSampleFiltered <= (others => '0');
+        b2Output            <= (others => '0');
+        b11Output           <= (others => '0');
+        b12Output           <= (others => '0');
+        b13Output           <= (others => '0');
+        b22Output           <= (others => '0');
+        b23Output           <= (others => '0');
+        b32Output           <= (others => '0');
+        b33Output           <= (others => '0');
+                               
+         a2Output           <= (others => '0');
+        a22Output           <= (others => '0');
+        a23Output           <= (others => '0');
+        a32Output           <= (others => '0');
+        a33Output           <= (others => '0');
+        
+        filterInOneChannel <= (others => '0');
+        filterInResized <= (others => '0');
+        filterSection_1in <= (others => '0');
+        audioSampleFiltered<= (others => '0');
+    end if;
+    end process;
+		 -- Grab just one channel from input
+	
+
+	--
 	
 	
 end architecture arch;

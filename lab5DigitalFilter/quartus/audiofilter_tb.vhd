@@ -20,14 +20,14 @@ component audiofilter is
 		audioSampleFiltered : out signed(31 downto 0)
 	);
 end component;
-
-	signal clk_tb 				  : std_logic;
-	signal reset_tb 			  : std_logic;
-	signal dataReq_tb			  : std_logic;
-	signal audioSample_tb 		  : signed(31 downto 0);
-	signal audioSample_sig 		  : signed(15 downto 0);
-	signal audioSampleFiltered_tb : signed(31 downto 0);
-	signal audioSampleFiltered_sig : signed(15 downto 0);
+                                                 
+	signal clk_tb 				  : std_logic := '0';
+	signal reset_tb 			  : std_logic := '0';
+	signal dataReq_tb			  : std_logic := '0';
+	signal audioSample_tb 		  : signed(31 downto 0) := (others => '0');
+	signal audioSample_sig 		  : signed(15 downto 0) := (others => '0');
+	signal audioSampleFiltered_tb : signed(31 downto 0) := (others => '0');
+	signal audioSampleFiltered_sig : signed(15 downto 0):= (others => '0');
 	
 	signal period : time := 20 ns;
     
@@ -47,10 +47,12 @@ end component;
 			audioSample => audioSample_tb,
 			audioSampleFiltered => audioSampleFiltered_tb
 			);
-	
-	clk_tb <= '0';
+    
+	--clk_tb <= '0';
 	clk_tb <= not clk_tb after period/2;
     audioSample_w <= (audioSample_sig & audioSample_sig);
+   
+    
     
     
 	stimulus : process is
@@ -61,7 +63,7 @@ end component;
 		variable readValue : integer;
 		variable writeValue : integer;
 		begin
-		
+		reset_tb <= '1';
 		wait for 100 ns;
 		reset_tb <= '0';
 		-- Read data from file into an array
@@ -76,9 +78,9 @@ end component;
 		for i in 1 to 100 loop
 			for j in 0 to 39 loop
                 wait for 20000 ns;
-                audioSample_sig <= audioSampleArray(i);
+                audioSample_sig <= audioSampleArray(j);
                 audioSampleFiltered_sig <= audioSample_w (15 downto 0);
-                audioSampleArray(i) <= to_signed(readValue, (16));
+                audioSampleArray(j) <= to_signed(readValue, (16));
                 wait for 50 ns;
                 dataReq_tb <= '1';
                 wait for 20 ns;
@@ -97,6 +99,7 @@ end component;
 		wait for 100 ns;
 		-- last wait statement needs to be here to prevent the process
 		-- sequence from re starting at the beginning
+        
 		wait;
 	end process stimulus;
 
