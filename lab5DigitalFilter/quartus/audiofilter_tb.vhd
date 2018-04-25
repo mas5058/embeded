@@ -22,7 +22,7 @@ component audiofilter is
 end component;
                                                  
 	signal clk_tb 				  : std_logic := '0';
-	signal reset_tb 			  : std_logic := '0';
+	signal reset_tb 			  : std_logic := '1';
 	signal dataReq_tb			  : std_logic := '0';
 	signal audioSample_tb 		  : signed(31 downto 0) := (others => '0');
 	signal audioSample_sig 		  : signed(15 downto 0) := (others => '0');
@@ -80,7 +80,7 @@ end component;
                 wait for 20000 ns;
                 audioSample_sig <= audioSampleArray(j);
                 audioSampleFiltered_sig <= audioSample_w (15 downto 0);
-                audioSampleArray(j) <= to_signed(readValue, (16));
+                --audioSampleArray(j) <= to_signed(readValue, (16));
                 wait for 50 ns;
                 dataReq_tb <= '1';
                 wait for 20 ns;

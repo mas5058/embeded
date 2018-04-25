@@ -316,41 +316,7 @@ architecture arch of audiofilter is
     
     process (clk, reset) is
     begin
-    if (rising_edge(clk) and clk = '1') then 
-    
-        audioSampleFiltered <= s24sum (31 downto 0);
-        b2Output <= b2OutputFull(52 downto 17);
-        b11Output <= b11OutputFull(52 downto 17);
-        b12Output <= b12OutputFull(52 downto 17);
-        b13Output <= b13OutputFull(52 downto 17);
-        b22Output <= b22OutputFull(52 downto 17);
-        b23Output <= b23OutputFull(52 downto 17);
-        b32Output <= b32OutputFull(52 downto 17);
-        b33Output <= b33OutputFull(52 downto 17);
-        
-         a2Output <= a2OutputFull(52 downto 17);
-        a22Output <= a22OutputFull(52 downto 17);
-        a23Output <= a23OutputFull(52 downto 17);
-        a32Output <= a32OutputFull(52 downto 17);
-        a33Output <= a33OutputFull(52 downto 17);
-        
-        filterInOneChannel <= audioSample(15 downto 0);
-        
-         --Simply resize the 16 bit input to 36 bits. There is an implied
-	-- divide by 4 involved in this, since we are going from 15 bits to
-	-- 17 bits after the implied decimal point. This will be canceled by
-	-- the multiply by 4 on the output.
-	filterInResized <= resize(filterInOneChannel, filterInResized'length);
-
-	-- Implement the divide by 16 which is multiplier s(1)
-	filterSection_1in <= shift_right(filterInResized, 4);
-
-	-- Grab the lowest 16 bits of your filter output and place them
-	-- into the output port. There is an implied multiply by 4 here
-	-- due to going from 15 bits to 17 bits after the decimal. This cancels
-	-- the previous divide by 4.
-	audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
-	elsif (reset = '1') then
+    if (reset = '1') then
         audioSampleFiltered <= (others => '0');
         b2Output            <= (others => '0');
         b11Output           <= (others => '0');
@@ -371,6 +337,41 @@ architecture arch of audiofilter is
         filterInResized <= (others => '0');
         filterSection_1in <= (others => '0');
         audioSampleFiltered<= (others => '0');
+    elsif (rising_edge(clk) and clk = '1') then 
+    
+        audioSampleFiltered <= s24sum (31 downto 0);
+        b2Output <= b2OutputFull(52 downto 17);
+        b11Output <= b11OutputFull(52 downto 17);
+        b12Output <= b12OutputFull(52 downto 17);
+        b13Output <= b13OutputFull(52 downto 17);
+        b22Output <= b22OutputFull(52 downto 17);
+        b23Output <= b23OutputFull(52 downto 17);
+        b32Output <= b32OutputFull(52 downto 17);
+        b33Output <= b33OutputFull(52 downto 17);
+        
+         a2Output <= a2OutputFull(52 downto 17);
+        a22Output <= a22OutputFull(52 downto 17);
+        a23Output <= a23OutputFull(52 downto 17);
+        a32Output <= a32OutputFull(52 downto 17);
+        a33Output <= a33OutputFull(52 downto 17);
+        
+        filterInOneChannel <= audioSample(15 downto 0);
+        
+       --Simply resize the 16 bit input to 36 bits. There is an implied
+	-- divide by 4 involved in this, since we are going from 15 bits to
+	-- 17 bits after the implied decimal point. This will be canceled by
+	-- the multiply by 4 on the output.
+        filterInResized <= resize(filterInOneChannel, filterInResized'length);
+
+	-- Implement the divide by 16 which is multiplier s(1)
+        filterSection_1in <= shift_right(filterInResized, 4);
+
+	-- Grab the lowest 16 bits of your filter output and place them
+	-- into the output port. There is an implied multiply by 4 here
+	-- due to going from 15 bits to 17 bits after the decimal. This cancels
+	-- the previous divide by 4.
+        audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
+	
     end if;
     end process;
 		 -- Grab just one channel from input
