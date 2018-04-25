@@ -44,7 +44,7 @@ end component;
 			clk => clk_tb,
 			reset => reset_tb,
 			dataReq => dataReq_tb,
-			audioSample => audioSample_tb,
+			audioSample => audioSample_w,
 			audioSampleFiltered => audioSampleFiltered_tb
 			);
     
@@ -63,6 +63,7 @@ end component;
 		variable readValue : integer;
 		variable writeValue : integer;
 		begin
+		dataReq_tb <= '0';
 		reset_tb <= '1';
 		wait for 100 ns;
 		reset_tb <= '0';
@@ -79,7 +80,7 @@ end component;
 			for j in 0 to 39 loop
                 wait for 20000 ns;
                 audioSample_sig <= audioSampleArray(j);
-                audioSampleFiltered_sig <= audioSample_w (15 downto 0);
+                audioSampleFiltered_sig <= audioSampleFiltered_tb (15 downto 0);
                 --audioSampleArray(j) <= to_signed(readValue, (16));
                 wait for 50 ns;
                 dataReq_tb <= '1';
@@ -87,7 +88,7 @@ end component;
                 dataReq_tb <= '0';
 				-- Your code here...
 				-- Write filter output to file
-				writeValue := to_integer(audioSampleFiltered_tb);
+				writeValue := to_integer(audioSampleFiltered_sig);
 				write(lineOut, writeValue);
 				writeline(results_file, lineOut);
 				-- Your code here...

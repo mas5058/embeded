@@ -46,6 +46,7 @@ architecture arch of audiofilter is
 	signal b11Output : signed(35 downto 0):= (others => '0');
 	signal b12Output : signed(35 downto 0):= (others => '0');
 	signal b13Output : signed(35 downto 0):= (others => '0');
+	signal b21Output : signed(35 downto 0):= (others => '0');
 	signal b22Output : signed(35 downto 0):= (others => '0');
 	signal b23Output : signed(35 downto 0):= (others => '0');
 	signal b32Output : signed(35 downto 0):= (others => '0');
@@ -55,6 +56,7 @@ architecture arch of audiofilter is
 	signal b11OutputFull : signed(71 downto 0):= (others => '0');
 	signal b12OutputFull : signed(71 downto 0):= (others => '0');
 	signal b13OutputFull : signed(71 downto 0):= (others => '0');
+	signal b21OutputFull : signed(71 downto 0):= (others => '0');
 	signal b22OutputFull : signed(71 downto 0):= (others => '0');
 	signal b23OutputFull : signed(71 downto 0):= (others => '0');
 	signal b32OutputFull : signed(71 downto 0):= (others => '0');
@@ -80,21 +82,25 @@ architecture arch of audiofilter is
 
 
 	--constant declarations
-	constant B11 : signed(35 downto 0) := x"000000E45";
-	constant B12 : signed(35 downto 0) := x"00000015B"; --.0026446 to 347
-	constant B13 : signed(35 downto 0) := x"00000015B"; --.25008
-	constant B21 : signed(35 downto 0) := x"000000E45"; -- .00529893 to 695
-	constant B22 : signed(35 downto 0) := x"0000002B7"; -- .00529893 to 695
-	constant B23 : signed(35 downto 0) := x"000010014"; -- .50015 to 695
+	--constant B11 : signed(35 downto 0) := x"000000E45";
+	constant B11 : signed(35 downto 0) := x"0000001B7"; --..0033507
+	--constant B21 : signed(35 downto 0) := x"000000E45"; -- .00529893 to 695
+	constant B21 : signed(35 downto 0) := x"0000001B7"; -- .00529893 to 695
 	constant B31 : signed(35 downto 0) := (others => '0');
-	constant B32 : signed(35 downto 0) := x"00000800B"; --.0026446
-	constant B33 : signed(35 downto 0) := x"00000015B"; --.25008 to 327793
-                   
-	constant A21 : signed(35 downto 0) := x"0000E2E14";-- - 91
-	constant A22 : signed(35 downto 0) := x"0000C2155";-- -1.9349
-	constant A23 : signed(35 downto 0) := x"0000C4C98";-- -1.8504 to 242536
+	--constant A21 : signed(35 downto 0) := x"0000E2E14";-- -.91
+	constant A21 : signed(35 downto 0) := x"00001D1ED";-- -.91
 	constant A31 : signed(35 downto 0) := (others => '0');
+	
+	constant B12 : signed(35 downto 0) := x"00000015B"; --.0026446 to 347
+	constant B22 : signed(35 downto 0) := x"0000002B5"; -- .00529893 to 695
+	constant B32 : signed(35 downto 0) := x"00000015B"; --.0026446
+	constant A22 : signed(35 downto 0) := x"0000E2E15";-- -1.9349
 	constant A32 : signed(35 downto 0) := x"00001E317";-- .94353 to 123671
+	
+	constant B13 : signed(35 downto 0) := x"00000800A"; --.25008
+	constant B23 : signed(35 downto 0) := x"000008AE4"; -- .50015 to 695
+	constant B33 : signed(35 downto 0) := x"00000800A"; --.25008 to 327793
+    constant A23 : signed(35 downto 0) := x"0000C4C9";-- -1.8504 to 242536
 	constant A33 : signed(35 downto 0) := x"00001B79C";-- .85861 TO 1122540
 
 	
@@ -148,7 +154,7 @@ architecture arch of audiofilter is
 	
 	badder: adder port map(
 		nibble1 => b1Output,
-		nibble2 => b2Output,
+		nibble2 => b21Output,
 		sum => sec1
 		);
 		
@@ -162,7 +168,7 @@ architecture arch of audiofilter is
 	b21multi: filter_mult port map(
 		dataa => ab2Output,
 		datab => B21,
-		result => b2OutputFull
+		result => b21OutputFull
 	);
 	a21multi: filter_mult port map(
 		dataa => ab2Output,
@@ -180,13 +186,13 @@ architecture arch of audiofilter is
     
     s12adder: adder port map(
         nibble1 => sec1Output,
-        nibble2 => a22Output,
+        nibble2 => a32Output,
         sum     => b12input
     );
     
     b12multi: filter_mult port map(
     	dataa => b12input,
-		datab => B21,
+		datab => B12,
 		result => b12OutputFull
     );
     
@@ -223,7 +229,7 @@ architecture arch of audiofilter is
     b32multi: filter_mult port map(
     	dataa => ff22output,
 		datab => B32,
-		result => b22OutputFull
+		result => b32OutputFull
     );
     
     s1ff1 :flipflop port map(
@@ -313,49 +319,8 @@ architecture arch of audiofilter is
         nibble2 => b33Output,
         sum     => s24sum
     );
-    
-    process (clk, reset) is
-    begin
-    if (reset = '1') then
-        audioSampleFiltered <= (others => '0');
-        b2Output            <= (others => '0');
-        b11Output           <= (others => '0');
-        b12Output           <= (others => '0');
-        b13Output           <= (others => '0');
-        b22Output           <= (others => '0');
-        b23Output           <= (others => '0');
-        b32Output           <= (others => '0');
-        b33Output           <= (others => '0');
-                               
-         a2Output           <= (others => '0');
-        a22Output           <= (others => '0');
-        a23Output           <= (others => '0');
-        a32Output           <= (others => '0');
-        a33Output           <= (others => '0');
-        
-        filterInOneChannel <= (others => '0');
-        filterInResized <= (others => '0');
-        filterSection_1in <= (others => '0');
-        audioSampleFiltered<= (others => '0');
-    elsif (rising_edge(clk) and clk = '1') then 
-    
-        audioSampleFiltered <= s24sum (31 downto 0);
-        b2Output <= b2OutputFull(52 downto 17);
-        b11Output <= b11OutputFull(52 downto 17);
-        b12Output <= b12OutputFull(52 downto 17);
-        b13Output <= b13OutputFull(52 downto 17);
-        b22Output <= b22OutputFull(52 downto 17);
-        b23Output <= b23OutputFull(52 downto 17);
-        b32Output <= b32OutputFull(52 downto 17);
-        b33Output <= b33OutputFull(52 downto 17);
-        
-         a2Output <= a2OutputFull(52 downto 17);
-        a22Output <= a22OutputFull(52 downto 17);
-        a23Output <= a23OutputFull(52 downto 17);
-        a32Output <= a32OutputFull(52 downto 17);
-        a33Output <= a33OutputFull(52 downto 17);
-        
-        filterInOneChannel <= audioSample(15 downto 0);
+--	begin
+	 filterInOneChannel <= audioSample(15 downto 0);
         
        --Simply resize the 16 bit input to 36 bits. There is an implied
 	-- divide by 4 involved in this, since we are going from 15 bits to
@@ -370,14 +335,59 @@ architecture arch of audiofilter is
 	-- into the output port. There is an implied multiply by 4 here
 	-- due to going from 15 bits to 17 bits after the decimal. This cancels
 	-- the previous divide by 4.
-        audioSampleFiltered <= filterOutput(15 downto 0) & filterOutput(15 downto 0);
+        audioSampleFiltered <= (filterOutput(15 downto 0) & filterOutput(15 downto 0));
+    
+    process (clk, reset) is
+    begin
+    if (reset = '1') then
+        --audioSampleFiltered <= (others => '0');
+        b2Output            <= (others => '0');
+        b11Output           <= (others => '0');
+        b12Output           <= (others => '0');
+        b13Output           <= (others => '0');
+        b21Output           <= (others => '0');
+        b22Output           <= (others => '0');
+        b23Output           <= (others => '0');
+        b32Output           <= (others => '0');
+        b33Output           <= (others => '0');
+                               
+         a2Output           <= (others => '0');
+        a22Output           <= (others => '0');
+        a23Output           <= (others => '0');
+        a32Output           <= (others => '0');
+        a33Output           <= (others => '0');
+        
+        --filterInOneChannel <= (others => '0');
+        --filterInResized <= (others => '0');
+        --filterSection_1in <= (others => '0');
+        --audioSampleFiltered<= (others => '0');
+    elsif (rising_edge(clk) and clk = '1') then 
+    
+        filterOutput <= s24sum (35 downto 0);
+        --b2Output <= b2OutputFull(52 downto 17);
+        b11Output <= b11OutputFull(52 downto 17);
+        b12Output <= b12OutputFull(52 downto 17);
+        b13Output <= b13OutputFull(52 downto 17);
+        b21Output <= b21OutputFull(52 downto 17);
+        b22Output <= b22OutputFull(52 downto 17);
+        b23Output <= b23OutputFull(52 downto 17);
+        b32Output <= b32OutputFull(52 downto 17);
+        b33Output <= b33OutputFull(52 downto 17);
+        
+         a2Output <= a2OutputFull(52 downto 17);
+        a22Output <= a22OutputFull(52 downto 17);
+        a23Output <= a23OutputFull(52 downto 17);
+        a32Output <= a32OutputFull(52 downto 17);
+        a33Output <= a33OutputFull(52 downto 17);
+        
+       
 	
     end if;
     end process;
 		 -- Grab just one channel from input
 	
 
-	--
+	
 	
 	
 end architecture arch;
