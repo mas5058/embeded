@@ -83,6 +83,10 @@ architecture lab4_arch of lab4 is
   signal read_data   : std_logic_vector (31 downto 0);
   signal temp_sig    : std_logic;
   signal wave_data   : std_logic_vector (31 downto 0);
+  signal wave_data_signed   : std_logic_vector (31 downto 0);
+  signal wave_data_sig   : std_logic_vector (31 downto 0);
+  signal wave_data_filtered   : std_logic_vector (31 downto 0);
+  signal wave_data_filtered_signed  : std_logic_vector (31 downto 0);
   signal AUD_BCLK_d1 : std_logic;
   signal AUD_BCLK_d2 : std_logic;
   signal AUD_BCLK_d3 : std_logic;
@@ -179,8 +183,29 @@ architecture lab4_arch of lab4 is
     );
   end component hexDisplayDriver;
   
+  component audiofilter is
+	port (
+		clk : in std_logic;
+		reset : in std_logic;
+		audioSample : in signed(31 downto 0);
+		dataReq : in std_logic;
+		audioSampleFiltered : out signed(31 downto 0)
+	);
+	end component; 
+  
 begin
-
+	
+	wave_data_signed <= signed(wave_data);
+	wave_data_filtered <= std_logic_vector(wave_data_filtered_signed);
+	audio_filter_inst : audiofilter
+	port map (
+		clk => CLOCK2_50,
+		reset => reset_n,
+		audioSample => wave_data_signed,
+		dataReq => dataReq,
+		audioSampleFiltered => wave_data_filtered_signed
+	);	
+	
   -- ***************************************************
   -- Code from first 3 labs.
   -- ***************************************************
@@ -241,7 +266,7 @@ begin
       i_write_data  => write_data,
       o_acknowledge => acknowledge,
       o_read_data   => read_data,
-      o_wave_data   => wave_data
+      o_wave_data   => wave_data_sig
     );
     
   -- audio_wvfrm audio_wvfrm_inst (
@@ -390,5 +415,13 @@ begin
       o_dataReq => dataReq,
       o_AUD_DACDAT => AUD_DACDAT
     );
+	 
+	 audioMux: process(SW,wave_data) BEGIN
+		if (SW(0) = '0') then
+			wave_data <= wave_data_filtered_signed;
+		else
+			wave_data <= wave_data_sig;
+		end if;
+	end process;
 
 end architecture lab4_arch;

@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_signed.all;
-use ieee.std_logic_unsigned.all;
+--use ieee.std_logic_unsigned.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
@@ -83,24 +83,25 @@ architecture arch of audiofilter is
 
 	--constant declarations
 	--constant B11 : signed(35 downto 0) := x"000000E45";
-	constant B11 : signed(35 downto 0) := x"0000001B7"; --..0033507
-	--constant B21 : signed(35 downto 0) := x"000000E45"; -- .00529893 to 695
-	constant B21 : signed(35 downto 0) := x"0000001B7"; -- .00529893 to 695
+	constant B11 : signed(35 downto 0) := x"0000001B7"; --.0033507
+	constant B21 : signed(35 downto 0) := x"0000001B7"; -- .0033507
+	constant A21 : signed(35 downto 0) := x"FFFFE2E14";-- -.91 C
 	constant B31 : signed(35 downto 0) := (others => '0');
-	--constant A21 : signed(35 downto 0) := x"0000E2E14";-- -.91
-	constant A21 : signed(35 downto 0) := x"00001D1ED";-- -.91
+	--constant A21 : signed(35 downto 0) := x"0000E2E14";-- -.91 C
+	
 	constant A31 : signed(35 downto 0) := (others => '0');
 	
+	
 	constant B12 : signed(35 downto 0) := x"00000015B"; --.0026446 to 347
-	constant B22 : signed(35 downto 0) := x"0000002B5"; -- .00529893 to 695
+	constant B22 : signed(35 downto 0) := x"0000002B5"; -- .00529893 to 693
 	constant B32 : signed(35 downto 0) := x"00000015B"; --.0026446
-	constant A22 : signed(35 downto 0) := x"0000E2E15";-- -1.9349
-	constant A32 : signed(35 downto 0) := x"00001E317";-- .94353 to 123671
+	constant A22 : signed(35 downto 0) := x"FFFFC2155";-- -1.9349
+	constant A32 : signed(35 downto 0) := x"00001E316";-- .94353 to 123671
 	
 	constant B13 : signed(35 downto 0) := x"00000800A"; --.25008
-	constant B23 : signed(35 downto 0) := x"000008AE4"; -- .50015 to 695
-	constant B33 : signed(35 downto 0) := x"00000800A"; --.25008 to 327793
-    constant A23 : signed(35 downto 0) := x"0000C4C9";-- -1.8504 to 242536
+	constant B23 : signed(35 downto 0) := x"000010014"; -- .50015 to 65555
+	constant B33 : signed(35 downto 0) := x"00000800A"; --.25008 to 327793 C
+    constant A23 : signed(35 downto 0) := x"FFFFC4C98";-- -1.8504 to 242536
 	constant A33 : signed(35 downto 0) := x"00001B79C";-- .85861 TO 1122540
 
 	
@@ -118,7 +119,8 @@ architecture arch of audiofilter is
 		port
 		(
 			nibble1, nibble2 : in signed(35 downto 0); 
-			sum       : out signed(35 downto 0)
+			aOrS 			 : in std_logic;
+			sum       		 : out signed(35 downto 0)
 		);
 	end component;
 	
@@ -142,6 +144,7 @@ architecture arch of audiofilter is
 	s1adder: adder port map(
 		nibble1 => filterSection_1in,
 		nibble2 => a2Output,
+		aOrS => '1',
 		sum => b1input
 		--carry_out=> null
 	);
@@ -155,6 +158,7 @@ architecture arch of audiofilter is
 	badder: adder port map(
 		nibble1 => b1Output,
 		nibble2 => b21Output,
+		aOrS => '0',
 		sum => sec1
 		);
 		
@@ -181,12 +185,14 @@ architecture arch of audiofilter is
     s15adder: adder port map(
         nibble1 => sec1,
         nibble2 => a22Output,
+		aOrS => '1',
         sum => sec1Output
     );
     
     s12adder: adder port map(
         nibble1 => sec1Output,
         nibble2 => a32Output,
+		aOrS => '1',
         sum     => b12input
     );
     
@@ -199,12 +205,14 @@ architecture arch of audiofilter is
     badder2: adder port map(
         nibble1 => b12Output,
         nibble2 => b22Output,
+		aOrS => '0',
         sum     => badder2output
     );
     
     badder3: adder port map(
         nibble1 => badder2output,
         nibble2 => b32Output,
+		aOrS => '0',
         sum     => sec2
     );
     
@@ -243,7 +251,7 @@ architecture arch of audiofilter is
     s1ff2 :flipflop port map(
         d => ff21output,
         clk => clk,
-		  reset => reset,
+		 reset => reset,
         en => dataReq,
         q => ff22output
     );
@@ -253,12 +261,14 @@ architecture arch of audiofilter is
     s2adder1: adder port map(
         nibble1 => sec2,
         nibble2 => a23Output,
+		aOrS => '1',
         sum     => s2adder1Output
     );
     
     s2adder2: adder port map(
         nibble1 => s2adder1Output,
         nibble2 => a33Output,
+		aOrS => '1',
         sum     => s2adder2Output
     );
     
@@ -271,6 +281,7 @@ architecture arch of audiofilter is
     s2adder3:adder port map(
         nibble1 => b13Output,
         nibble2 => b23Output,
+		aOrS => '0',
         sum     => s2adder3Output
     );
     
@@ -317,6 +328,7 @@ architecture arch of audiofilter is
     s2adder4:adder port map(
         nibble1 => s2adder3Output,
         nibble2 => b33Output,
+		aOrS => '0',
         sum     => s24sum
     );
 --	begin
@@ -337,31 +349,31 @@ architecture arch of audiofilter is
 	-- the previous divide by 4.
         audioSampleFiltered <= (filterOutput(15 downto 0) & filterOutput(15 downto 0));
     
-    process (clk, reset) is
-    begin
-    if (reset = '1') then
-        --audioSampleFiltered <= (others => '0');
-        b2Output            <= (others => '0');
-        b11Output           <= (others => '0');
-        b12Output           <= (others => '0');
-        b13Output           <= (others => '0');
-        b21Output           <= (others => '0');
-        b22Output           <= (others => '0');
-        b23Output           <= (others => '0');
-        b32Output           <= (others => '0');
-        b33Output           <= (others => '0');
+    -- process (clk, reset) is
+    -- begin
+    -- if (reset = '1') then
+        -- --audioSampleFiltered <= (others => '0');
+        -- b2Output            <= (others => '0');
+        -- b11Output           <= (others => '0');
+        -- b12Output           <= (others => '0');
+        -- b13Output           <= (others => '0');
+        -- b21Output           <= (others => '0');
+        -- b22Output           <= (others => '0');
+        -- b23Output           <= (others => '0');
+        -- b32Output           <= (others => '0');
+        -- b33Output           <= (others => '0');
                                
-         a2Output           <= (others => '0');
-        a22Output           <= (others => '0');
-        a23Output           <= (others => '0');
-        a32Output           <= (others => '0');
-        a33Output           <= (others => '0');
+         -- a2Output           <= (others => '0');
+        -- a22Output           <= (others => '0');
+        -- a23Output           <= (others => '0');
+        -- a32Output           <= (others => '0');
+        -- a33Output           <= (others => '0');
         
-        --filterInOneChannel <= (others => '0');
-        --filterInResized <= (others => '0');
-        --filterSection_1in <= (others => '0');
-        --audioSampleFiltered<= (others => '0');
-    elsif (rising_edge(clk) and clk = '1') then 
+        -- --filterInOneChannel <= (others => '0');
+        -- --filterInResized <= (others => '0');
+        -- --filterSection_1in <= (others => '0');
+        -- --audioSampleFiltered<= (others => '0');
+    -- END IF;
     
         filterOutput <= s24sum (35 downto 0);
         --b2Output <= b2OutputFull(52 downto 17);
@@ -382,9 +394,8 @@ architecture arch of audiofilter is
         
        
 	
-    end if;
-    end process;
-		 -- Grab just one channel from input
+    --end if;
+    --end process;
 	
 
 	
