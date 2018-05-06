@@ -1,0 +1,197 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "audioSampleFiltered[0]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[1]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[2]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[3]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[4]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[5]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[6]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[7]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[8]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[9]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[10]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[11]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[12]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[13]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[14]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[15]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[16]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[17]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[18]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[19]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[20]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[21]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[22]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[23]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[24]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[25]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[26]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[27]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[28]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[29]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[30]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSampleFiltered[31]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "dataReq",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[15]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[4]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[5]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[6]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[7]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[8]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[9]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[10]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[11]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[12]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[13]",
+					"strict" : false
+				},
+				{
+					"name" : "audioSample[14]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

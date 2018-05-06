@@ -1,0 +1,13 @@
+
+
+S:/Embedded/lab5DigitalFilter/quartus/filter_mult.vhd
+
+Apr 23 05PM:49:57>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+filter_mult.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?

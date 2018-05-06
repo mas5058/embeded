@@ -1,5 +1,5 @@
 Analysis & Synthesis report for digitalFilter
-Mon Apr 30 17:48:25 2018
+Sun May 06 17:22:44 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Mon Apr 30 17:48:25 2018               ;
+; Analysis & Synthesis Status ; Failed - Sun May 06 17:22:44 2018               ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
 ; Revision Name               ; digitalFilter                                   ;
 ; Top-level Entity Name       ; lab4                                            ;
@@ -162,7 +162,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
-    Info: Processing started: Mon Apr 30 17:48:15 2018
+    Info: Processing started: Sun May 06 17:22:33 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digitalFilter -c digitalFilter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -318,13 +318,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file adder.v
 Info (12021): Found 2 design units, including 1 entities, in source file audiofilter_tb.vhd
     Info (12022): Found design unit 1: audiofilter_tb-test File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd Line: 12
     Info (12023): Found entity 1: audiofilter_tb File: S:/Embedded/lab5DigitalFilter/quartus/audiofilter_tb.vhd Line: 9
-Error (10409): VHDL Type Conversion error at lab4.vhd(198): converted type of object near text or symbol "SIGNED" must match std_logic_vector type of target object File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 198
+Error (10476): VHDL error at lab4.vhd(206): type of identifier "wave_data_filtered_signed" does not agree with its usage as "SIGNED" type File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 206
+Error (10558): VHDL error at lab4.vhd(206): cannot associate formal port "audioSampleFiltered" of mode "out" with an expression File: S:/Embedded/lab5DigitalFilter/src/lab4.vhd Line: 206
 Info (144001): Generated suppressed messages file S:/Embedded/lab5DigitalFilter/quartus/output_files/digitalFilter.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 2 warnings
-    Error: Peak virtual memory: 749 megabytes
-    Error: Processing ended: Mon Apr 30 17:48:26 2018
-    Error: Elapsed time: 00:00:11
-    Error: Total CPU time (on all processors): 00:00:21
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 2 warnings
+    Error: Peak virtual memory: 748 megabytes
+    Error: Processing ended: Sun May 06 17:22:45 2018
+    Error: Elapsed time: 00:00:12
+    Error: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+

@@ -83,7 +83,7 @@ architecture lab4_arch of lab4 is
   signal read_data   : std_logic_vector (31 downto 0);
   signal temp_sig    : std_logic;
   signal wave_data   : std_logic_vector (31 downto 0);
-  signal wave_data_signed   : std_logic_vector (31 downto 0);
+  signal wave_data_signed   : signed (31 downto 0);
   signal wave_data_sig   : std_logic_vector (31 downto 0);
   signal wave_data_filtered   : std_logic_vector (31 downto 0);
   signal wave_data_filtered_signed  : std_logic_vector (31 downto 0);
