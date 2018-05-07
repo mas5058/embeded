@@ -1,17 +1,17 @@
-Fitter Status : Successful - Sun May 06 19:48:05 2018
-Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Fitter Status : Successful - Mon May 07 18:50:34 2018
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 Revision Name : digitalFilter
 Top-level Entity Name : lab4
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 2,319 / 32,070 ( 7 % )
-Total registers : 1423
+Logic utilization (in ALMs) : 3,108 / 32,070 ( 10 % )
+Total registers : 1442
 Total pins : 189 / 457 ( 41 % )
 Total virtual pins : 0
 Total block memory bits : 306,176 / 4,065,280 ( 8 % )
 Total RAM Blocks : 41 / 397 ( 10 % )
-Total DSP Blocks : 48 / 87 ( 55 % )
+Total DSP Blocks : 52 / 87 ( 60 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

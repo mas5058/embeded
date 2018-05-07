@@ -156,7 +156,7 @@ architecture arch of audiofilter is
 	);
 	
 	badder: adder port map(
-		nibble1 => b1Output,
+		nibble1 => b11Output,
 		nibble2 => b21Output,
 		aOrS => '0',
 		sum => sec1

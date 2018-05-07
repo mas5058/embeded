@@ -1,6 +1,6 @@
 Assembler report for digitalFilter
-Sun May 06 19:48:38 2018
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Mon May 07 18:50:49 2018
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
 ---------------------
@@ -11,7 +11,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/Michael/Documents/College/ebeded/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof
+  6. Assembler Device Options: S:/embedded2/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun May 06 19:48:38 2018 ;
+; Assembler Status      ; Successful - Mon May 07 18:50:49 2018 ;
 ; Revision Name         ; digitalFilter                         ;
 ; Top-level Entity Name ; lab4                                  ;
 ; Family                ; Cyclone V                             ;
@@ -64,24 +64,24 @@ agreement for further details.
 +--------+------------------------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                  ;
-+------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                  ;
-+------------------------------------------------------------------------------------------------------------+
-; C:/Users/Michael/Documents/College/ebeded/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof ;
-+------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Assembler Generated Files                                                     ;
++-------------------------------------------------------------------------------+
+; File Name                                                                     ;
++-------------------------------------------------------------------------------+
+; S:/embedded2/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof ;
++-------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/Michael/Documents/College/ebeded/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof ;
-+----------------+---------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                             ;
-+----------------+---------------------------------------------------------------------------------------------------------------------+
-; Device         ; 5CSEMA5F31C6                                                                                                        ;
-; JTAG usercode  ; 0x01CFB322                                                                                                          ;
-; Checksum       ; 0x01CFB322                                                                                                          ;
-+----------------+---------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: S:/embedded2/embeded/lab5DigitalFilter/quartus/output_files/digitalFilter.sof ;
++----------------+----------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                ;
++----------------+----------------------------------------------------------------------------------------+
+; Device         ; 5CSEMA5F31C6                                                                           ;
+; JTAG usercode  ; 0x01D34A5B                                                                             ;
+; Checksum       ; 0x01D34A5B                                                                             ;
++----------------+----------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -89,15 +89,15 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun May 06 19:48:14 2018
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+    Info: Processing started: Mon May 07 18:50:39 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off digitalFilter -c digitalFilter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 830 megabytes
-    Info: Processing ended: Sun May 06 19:48:39 2018
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Peak virtual memory: 798 megabytes
+    Info: Processing ended: Mon May 07 18:50:49 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:08
 
 

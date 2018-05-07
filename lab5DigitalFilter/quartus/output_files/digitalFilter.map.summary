@@ -1,17 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun May 06 19:42:39 2018
-Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Mon May 07 18:49:30 2018
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 Revision Name : digitalFilter
 Top-level Entity Name : lab4
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A
-Total registers : 1382
-Total pins : 189
-Total virtual pins : 0
-Total block memory bits : 306,176
-Total DSP Blocks : 48
-Total HSSI RX PCSs : 0
-Total HSSI PMA RX Deserializers : 0
-Total HSSI TX PCSs : 0
-Total HSSI PMA TX Serializers : 0
-Total PLLs : 0
-Total DLLs : 0
+Logic utilization (in ALMs) : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total block memory bits : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+Total DLLs : N/A until Partition Merge

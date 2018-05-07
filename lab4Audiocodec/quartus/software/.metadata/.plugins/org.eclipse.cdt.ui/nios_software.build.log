@@ -1,9 +1,21 @@
-13:47:22 **** Incremental Build of configuration Nios II for project nios_software ****
+18:59:57 **** Incremental Build of configuration Nios II for project nios_software ****
 make all 
 Info: Building ../nios_software_bsp/
 C:/intelFPGA/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../nios_software_bsp/
-[BSP build complete]
-[nios_software build complete]
+Makefile not up to date.
+settings.bsp has been modified since the BSP Makefile was generated.
 
-13:47:23 Build Finished (took 1s.318ms)
+Generate the BSP to update the Makefile, and then build again.
+
+To generate from Eclipse:
+ 1. Right-click the BSP project.
+ 2. In the Nios II Menu, click Generate BSP.
+
+To generate from the command line:
+ nios2-bsp-generate-files --settings=<settings file> --bsp-dir=<target bsp files directory>
+
+make[1]: *** [makefile] Error 1
+make: *** [../nios_software_bsp/-recurs-make-lib] Error 2
+
+18:59:59 Build Finished (took 1s.421ms)
 

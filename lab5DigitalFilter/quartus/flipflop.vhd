@@ -19,7 +19,7 @@ begin
 	process(clk,en,reset)
 	begin
 		if(rising_edge(clk)) then
-			if(reset = '1') then
+			if(reset = '0') then
 				q <= (others => '0');
 			elsif (en = '1') then
 				q <= d;

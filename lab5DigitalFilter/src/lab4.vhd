@@ -195,8 +195,9 @@ architecture lab4_arch of lab4 is
   
 begin
 	
-	wave_data_signed <= signed(wave_data);
+	wave_data_signed <= signed(wave_data_sig);
 	wave_data_filtered <= std_logic_vector(wave_data_filtered_signed);
+	
 	audio_filter_inst : audiofilter
 	port map (
 		clk => CLOCK2_50,
@@ -416,12 +417,13 @@ begin
       o_AUD_DACDAT => AUD_DACDAT
     );
 	 
-	 audioMux: process(SW,wave_data) BEGIN
-		if (SW(0) = '0') then
+	 audioMux: process(SW,wave_data,wave_data_filtered,wave_data_sig) BEGIN
+		if (SW(0) = '1') then
 			wave_data <=  wave_data_filtered;
 		else
 			wave_data <= wave_data_sig;
 		end if;
 	end process;
+	--wave_data <= wave_data_filtered;
 
 end architecture lab4_arch;
