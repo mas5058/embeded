@@ -86,7 +86,7 @@ architecture lab4_arch of lab4 is
   signal wave_data_signed   : signed (31 downto 0);
   signal wave_data_sig   : std_logic_vector (31 downto 0);
   signal wave_data_filtered   : std_logic_vector (31 downto 0);
-  signal wave_data_filtered_signed  : std_logic_vector (31 downto 0);
+  signal wave_data_filtered_signed  : signed (31 downto 0);
   signal AUD_BCLK_d1 : std_logic;
   signal AUD_BCLK_d2 : std_logic;
   signal AUD_BCLK_d3 : std_logic;
@@ -418,7 +418,7 @@ begin
 	 
 	 audioMux: process(SW,wave_data) BEGIN
 		if (SW(0) = '0') then
-			wave_data <= wave_data_filtered_signed;
+			wave_data <=  wave_data_filtered;
 		else
 			wave_data <= wave_data_sig;
 		end if;
