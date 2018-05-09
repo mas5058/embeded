@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 4, 2018 5:18:39 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1522876719985</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>S:\Embedded\audiodemo\audiodemoquartus\software\nios_software_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>May 9, 2018 4:17:50 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1525897070670</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>S:\embedded2\embeded\audiodemo\audiodemoquartus\software\nios_software_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -963,6 +963,12 @@
                 <addressRange>0x04021068 - 0x0402106F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>audiofilter_0</slaveDescriptor>
+                <addressRange>0x04021070 - 0x04021073</addressRange>
+                <addressSpan>4</addressSpan>
+                <attributes/>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>

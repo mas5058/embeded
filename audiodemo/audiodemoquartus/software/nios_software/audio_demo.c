@@ -14,7 +14,7 @@
 #include "altera_avalon_timer_regs.h"
 #include "altera_avalon_timer.h"
 
-
+typedef enum {false = 0, true = 1} bool;
 
 // create standard embedded type definitions
 typedef   signed char   sint8;              // signed 8 bit values
@@ -30,7 +30,7 @@ typedef         float   real32;             // 32 bit real values
 
 uint32 ECHO_CNT = 0;                      // index into buffer
 uint32 SAMPLE_CNT = 0;                    //keep track of which sample is being read from SDRAM
-uint32 CHANNELS = 0;
+uint32 CHANNELS = 2;
 volatile uint16 TOGGLE = 0;
 
 
@@ -42,6 +42,10 @@ uint16* SdramPtr    = (uint16*)NEW_SDRAM_CONTROLLER_0_BASE;
 uint32* AudioPtr    = (uint32*)AUDIO_0_BASE;
 uint32* TimerPtr    = (uint32*)TIMER_0_BASE;
 uint32* PinPtr      = (uint32*)PIN_BASE;
+uint32* Swptr 		= (uint32*) PIO_0_BASE;
+uint32* AudioFPtr   = (uint32*)AUDIOFILTER_0_BASE;
+
+
 
   //In this ISR, most of the processing is performed.  The timer interrupt is set for 20.83 us which is
   // 1/48000.  By setting the timer interrupt at the sampling rate, a new sample is never missed and the
@@ -50,6 +54,9 @@ uint32* PinPtr      = (uint32*)PIN_BASE;
 void timer_isr(void *context)
 {
 	  uint16 right_sample, left_sample;
+
+	 // uint32 AudioFVal = *AudioFPtr;
+
 
 		//clear timer interrupt
         *TimerPtr = 0;
@@ -62,18 +69,37 @@ void timer_isr(void *context)
 
 	    if (SAMPLE_CNT < MAX_SAMPLES)
 	    {
-	    	left_sample = SdramPtr[SAMPLE_CNT++];  //read left side sample first
+	    	if(*Swptr == 0){
+				left_sample = SdramPtr[SAMPLE_CNT++];  //read left side sample first
 
-	    	if (CHANNELS == 2)                       //only read right sample if stereo mode
-	    	{
-	    		right_sample = SdramPtr[SAMPLE_CNT++];
-	    		AudioPtr[3] = right_sample;       //in stereo, output to both sides
-	    	    AudioPtr[2] = left_sample;
+				if (CHANNELS == 2)                       //only read right sample if stereo mode
+				{
+					right_sample = SdramPtr[SAMPLE_CNT++];
+					AudioPtr[3] = right_sample;       //in stereo, output to both sides
+					AudioPtr[2] = left_sample;
+				}
+				else
+				{
+					AudioPtr[3] = left_sample;       //in mono, output same sample to both sides
+					AudioPtr[2] = left_sample;
+				}
 	    	}
 	    	else
 	    	{
+	    		*AudioFPtr = SdramPtr[SAMPLE_CNT++];  //read left side sample first
+	    		left_sample = *AudioFPtr;
+
+	    		if (CHANNELS == 2)                       //only read right sample if stereo mode
+	    		{
+	    			right_sample = *AudioFPtr;
+	    			AudioPtr[3] = right_sample;       //in stereo, output to both sides
+	    			AudioPtr[2] = left_sample;
+	    		}
+	    		else
+	    		{
 	    		AudioPtr[3] = left_sample;       //in mono, output same sample to both sides
 	    		AudioPtr[2] = left_sample;
+	    		}
 	    	}
 	    }
 	    else      //this will allow continuous looping of audio.  comment this out to only play once
@@ -145,22 +171,26 @@ void read_file(void)
 
 int main(void)
 {
-	printf("ESD-I Audio Demo Program Running.\n");
 
-#if (FIRST_TIME)
-	read_file();
-#endif
-
-   //Register interrupts
-   //Use legacy register because the audio core forces the system to legacy
-	//alt_irq_register(TIMER_0_IRQ,0,timer_isr);
-	alt_ic_isr_register(TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,TIMER_0_IRQ,timer_isr,0,0);
-   //initialize timer interrupt 48Khz
-	TimerPtr[4] = 3;
 
 
  while (1)
  {
+	 	 //SwVal = *Swptr;
+		 printf("ESD-I Audio Demo Program Running.\n");
+
+
+		 #if (FIRST_TIME)
+		 	read_file();
+		 #endif
+
+		    //Register interrupts
+		    //Use legacy register because the audio core forces the system to legacy
+		 	//alt_irq_register(TIMER_0_IRQ,0,timer_isr);
+		 		alt_ic_isr_register(TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,TIMER_0_IRQ,timer_isr,0,0);
+		    //initialize timer interrupt 48Khz
+		 		TimerPtr[4] = 3;
+
  }
  return 0;
 }

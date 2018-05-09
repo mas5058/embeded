@@ -68,6 +68,16 @@ architecture rtl of nios_system is
 		);
 	end component nios_system_audio_and_video_config_0;
 
+	component audiofilter is
+		port (
+			clk                 : in  std_logic                     := 'X';             -- clk
+			reset               : in  std_logic                     := 'X';             -- reset
+			dataReq             : in  std_logic                     := 'X';             -- write
+			audioSample         : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			audioSampleFiltered : out std_logic_vector(31 downto 0)                     -- readdata
+		);
+	end component audiofilter;
+
 	component nios_system_jtag_uart_0 is
 		port (
 			clk            : in  std_logic                     := 'X';             -- clk
@@ -242,6 +252,9 @@ architecture rtl of nios_system is
 			audio_and_video_config_0_avalon_av_config_slave_writedata   : out std_logic_vector(31 downto 0);                    -- writedata
 			audio_and_video_config_0_avalon_av_config_slave_byteenable  : out std_logic_vector(3 downto 0);                     -- byteenable
 			audio_and_video_config_0_avalon_av_config_slave_waitrequest : in  std_logic                     := 'X';             -- waitrequest
+			audiofilter_0_avalon_slave_0_write                          : out std_logic;                                        -- write
+			audiofilter_0_avalon_slave_0_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			audiofilter_0_avalon_slave_0_writedata                      : out std_logic_vector(31 downto 0);                    -- writedata
 			jtag_uart_0_avalon_jtag_slave_address                       : out std_logic_vector(0 downto 0);                     -- address
 			jtag_uart_0_avalon_jtag_slave_write                         : out std_logic;                                        -- write
 			jtag_uart_0_avalon_jtag_slave_read                          : out std_logic;                                        -- read
@@ -369,7 +382,7 @@ architecture rtl of nios_system is
 		);
 	end component altera_reset_controller;
 
-	signal sys_sdram_pll_0_sys_clk_clk                                                   : std_logic;                     -- sys_sdram_pll_0:sys_clk_clk -> [audio_0:clk, audio_and_video_config_0:clk, irq_mapper:clk, jtag_uart_0:clk, mm_interconnect_0:sys_sdram_pll_0_sys_clk_clk, new_sdram_controller_0:clk, nios2_gen2_0:clk, onchip_memory2_1:clk, pin:clk, pio_0:clk, rst_controller:clk, sysid:clock, timer_0:clk]
+	signal sys_sdram_pll_0_sys_clk_clk                                                   : std_logic;                     -- sys_sdram_pll_0:sys_clk_clk -> [audio_0:clk, audio_and_video_config_0:clk, audiofilter_0:clk, irq_mapper:clk, jtag_uart_0:clk, mm_interconnect_0:sys_sdram_pll_0_sys_clk_clk, new_sdram_controller_0:clk, nios2_gen2_0:clk, onchip_memory2_1:clk, pin:clk, pio_0:clk, rst_controller:clk, sysid:clock, timer_0:clk]
 	signal nios2_gen2_0_data_master_readdata                                             : std_logic_vector(31 downto 0); -- mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	signal nios2_gen2_0_data_master_waitrequest                                          : std_logic;                     -- mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	signal nios2_gen2_0_data_master_debugaccess                                          : std_logic;                     -- nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -402,6 +415,9 @@ architecture rtl of nios_system is
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read                          : std_logic;                     -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_read -> mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read:in
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write                         : std_logic;                     -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_write -> mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write:in
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata                     : std_logic_vector(31 downto 0); -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_writedata -> jtag_uart_0:av_writedata
+	signal mm_interconnect_0_audiofilter_0_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- audiofilter_0:audioSampleFiltered -> mm_interconnect_0:audiofilter_0_avalon_slave_0_readdata
+	signal mm_interconnect_0_audiofilter_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:audiofilter_0_avalon_slave_0_write -> audiofilter_0:dataReq
+	signal mm_interconnect_0_audiofilter_0_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:audiofilter_0_avalon_slave_0_writedata -> audiofilter_0:audioSample
 	signal mm_interconnect_0_sysid_control_slave_readdata                                : std_logic_vector(31 downto 0); -- sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
 	signal mm_interconnect_0_sysid_control_slave_address                                 : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_control_slave_address -> sysid:address
 	signal mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata                       : std_logic_vector(31 downto 0); -- nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
@@ -446,7 +462,7 @@ architecture rtl of nios_system is
 	signal irq_mapper_receiver0_irq                                                      : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                                      : std_logic;                     -- timer_0:irq -> irq_mapper:receiver1_irq
 	signal nios2_gen2_0_irq_irq                                                          : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> nios2_gen2_0:irq
-	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [audio_0:reset, audio_and_video_config_0:reset, irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, onchip_memory2_1:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
+	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [audio_0:reset, audio_and_video_config_0:reset, audiofilter_0:reset, irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, onchip_memory2_1:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                                            : std_logic;                     -- rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_1:reset_req, rst_translator:reset_req_in]
 	signal nios2_gen2_0_debug_reset_request_reset                                        : std_logic;                     -- nios2_gen2_0:debug_reset_request -> rst_controller:reset_in0
 	signal sys_sdram_pll_0_reset_source_reset                                            : std_logic;                     -- sys_sdram_pll_0:reset_source_reset -> rst_controller:reset_in1
@@ -493,6 +509,15 @@ begin
 			waitrequest => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_waitrequest, --                       .waitrequest
 			I2C_SDAT    => i2c_SDAT,                                                                      --     external_interface.export
 			I2C_SCLK    => i2c_SCLK                                                                       --                       .export
+		);
+
+	audiofilter_0 : component audiofilter
+		port map (
+			clk                 => sys_sdram_pll_0_sys_clk_clk,                              --          clock.clk
+			reset               => rst_controller_reset_out_reset,                           --          reset.reset
+			dataReq             => mm_interconnect_0_audiofilter_0_avalon_slave_0_write,     -- avalon_slave_0.write
+			audioSample         => mm_interconnect_0_audiofilter_0_avalon_slave_0_writedata, --               .writedata
+			audioSampleFiltered => mm_interconnect_0_audiofilter_0_avalon_slave_0_readdata   --               .readdata
 		);
 
 	jtag_uart_0 : component nios_system_jtag_uart_0
@@ -660,6 +685,9 @@ begin
 			audio_and_video_config_0_avalon_av_config_slave_writedata   => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_writedata,   --                                                .writedata
 			audio_and_video_config_0_avalon_av_config_slave_byteenable  => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_byteenable,  --                                                .byteenable
 			audio_and_video_config_0_avalon_av_config_slave_waitrequest => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_waitrequest, --                                                .waitrequest
+			audiofilter_0_avalon_slave_0_write                          => mm_interconnect_0_audiofilter_0_avalon_slave_0_write,                          --                    audiofilter_0_avalon_slave_0.write
+			audiofilter_0_avalon_slave_0_readdata                       => mm_interconnect_0_audiofilter_0_avalon_slave_0_readdata,                       --                                                .readdata
+			audiofilter_0_avalon_slave_0_writedata                      => mm_interconnect_0_audiofilter_0_avalon_slave_0_writedata,                      --                                                .writedata
 			jtag_uart_0_avalon_jtag_slave_address                       => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address,                       --                   jtag_uart_0_avalon_jtag_slave.address
 			jtag_uart_0_avalon_jtag_slave_write                         => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write,                         --                                                .write
 			jtag_uart_0_avalon_jtag_slave_read                          => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read,                          --                                                .read

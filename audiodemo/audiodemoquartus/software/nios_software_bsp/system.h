@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../../nios_system.sopcinfo
  *
- * Generated: Wed Apr 04 16:00:41 EDT 2018
+ * Generated: Wed May 09 16:17:54 EDT 2018
  */
 
 /*
@@ -142,6 +142,7 @@
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_UP_AVALON_AUDIO
 #define __ALTERA_UP_AVALON_AUDIO_AND_VIDEO_CONFIG
+#define __AUDIOFILTER
 
 
 /*
@@ -214,6 +215,20 @@
 #define AUDIO_AND_VIDEO_CONFIG_0_NAME "/dev/audio_and_video_config_0"
 #define AUDIO_AND_VIDEO_CONFIG_0_SPAN 16
 #define AUDIO_AND_VIDEO_CONFIG_0_TYPE "altera_up_avalon_audio_and_video_config"
+
+
+/*
+ * audiofilter_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_audiofilter_0 audiofilter
+#define AUDIOFILTER_0_BASE 0x4021070
+#define AUDIOFILTER_0_IRQ -1
+#define AUDIOFILTER_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define AUDIOFILTER_0_NAME "/dev/audiofilter_0"
+#define AUDIOFILTER_0_SPAN 4
+#define AUDIOFILTER_0_TYPE "audiofilter"
 
 
 /*
@@ -379,7 +394,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1522871697
+#define SYSID_TIMESTAMP 1525896340
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
