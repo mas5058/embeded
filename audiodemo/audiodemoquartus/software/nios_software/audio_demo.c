@@ -26,7 +26,7 @@ typedef unsigned long   uint32;             // unsigned 32 bit values
 typedef         float   real32;             // 32 bit real values
 
 // Global variables
-#define MAX_SAMPLES 				 0x10000  //max sample data (16 bits each) for SDRAM
+#define MAX_SAMPLES 				 0x40000  //max sample data (16 bits each) for SDRAM
 
 uint32 ECHO_CNT = 0;                      // index into buffer
 uint32 SAMPLE_CNT = 0;                    //keep track of which sample is being read from SDRAM

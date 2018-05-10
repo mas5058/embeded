@@ -899,9 +899,9 @@ void timer_isr(void *context)
 
 
 	    if (SAMPLE_CNT < MAX_SAMPLES)
- 40102b0:	d0a6fc17 	ldw	r2,-25616(gp)
- 40102b4:	00ffffd4 	movui	r3,65535
- 40102b8:	18804d36 	bltu	r3,r2,40103f0 <timer_isr+0x184>
+ 40102b0:	d0e6fc17 	ldw	r3,-25616(gp)
+ 40102b4:	00800134 	movhi	r2,4
+ 40102b8:	18804d2e 	bgeu	r3,r2,40103f0 <timer_isr+0x184>
 	    {
 	    	if(*Swptr == 0){
  40102bc:	d0a00417 	ldw	r2,-32752(gp)
@@ -1233,9 +1233,9 @@ void read_file(void)
 	    CHANNELS = NumChannels;
 
 	    while (i < MAX_SAMPLES)
- 40105d8:	e0bff217 	ldw	r2,-56(fp)
- 40105dc:	00ffffd4 	movui	r3,65535
- 40105e0:	18bfef2e 	bgeu	r3,r2,40105a0 <_gp+0xfffefdd0>
+ 40105d8:	e0fff217 	ldw	r3,-56(fp)
+ 40105dc:	00800134 	movhi	r2,4
+ 40105e0:	18bfef36 	bltu	r3,r2,40105a0 <_gp+0xfffefdd0>
 
 	    	fread(&Data, 2, 1, fp);  //read the file in one short int at a time
 	    	SdramPtr[i++] = Data;   //store in sdram.
